@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="pizzaicon.png"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('pizza.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" id="register-form">
+					<span class="login100-form-logo">
+						<img id="imagempizza" src="pizzaicon.png">
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Cadastro
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "nome">
+						<input class="input100" type="text" name="name" placeholder="Nome">
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "endereco">
+						<input class="input100" type="text" name="address" placeholder="Endereço">
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "email">
+						<input class="input100" type="text" name="email" placeholder="Email">
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "telefone">
+						<input class="input100" type="text" name="phone" placeholder="Telefone">
+					</div>
+					
+					<div class="wrap-input100">
+						<input class="input-checkbox100" id="whatsapp" type="checkbox" name="whatsapp" value="yes">
+						<label class="label-checkbox100" for="whatsapp">
+						  Tem WhatsApp?
+						</label>
+					  </div>
+
+					<div class="wrap-input100 validate-input" data-validate="Senha">
+						<input class="input100" type="password" name="password" placeholder="Senha">
+					</div>
+
+				
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="register-btn">
+							Cadastro
+						</button>
+					</div>
+
+                    <div class="textologcad">
+                        <p>Ja tens um cadastro?<a href="login.html"> Login</a></p>
+                    </div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/user.js"></script>
+</body>
+</html>
