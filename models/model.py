@@ -87,7 +87,3 @@ class Order_Item(SQLModel, table=True):
     order_id: Optional[int] = Field(default=None, foreign_key="order.id")
 
     order: Optional[Order] = Relationship(back_populates="order_items")
-
-
-
-
