@@ -31,9 +31,8 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
                 session.refresh(ocupacao)
             
             ocupacoes_list.append(ocupacao)
-
+            
         # Em seguida, ele cria uma nova relação entre a MEI recém-criada (nova_mei) e cada ocupação da lista de ocupações. Essa relação é armazenada na tabela de associação RelacaoOcupacaoXNovaMEI. Para cada ocupação, ele cria um objeto RelacaoOcupacaoXNovaMEI com a chave primária da nova MEI e a chave primária da ocupação, indicando que essa ocupação é primária para a MEI. O objeto é adicionado ao banco de dados e a transação é concluída com o comando commit().
-        
             nova_mei_ocupacao = RelacaoOcupacaoXNovaMEI(nova_mei_id=nova_mei.id, ocupacao_id=ocupacao.id, is_primario=True)
             session.add(nova_mei_ocupacao)
             session.commit()
