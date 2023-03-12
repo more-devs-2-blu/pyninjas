@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, create_engine
 from sqlalchemy.orm import sessionmaker
-import models.model_hipizza
+import models.model
 
 engine = create_engine("sqlite:///database.db")
 
