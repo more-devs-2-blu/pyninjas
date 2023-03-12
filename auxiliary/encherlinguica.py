@@ -1,9 +1,15 @@
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 from db.database import engine
 from sqlmodel import Session, select
 # from models.model import ClassRoom, Student, Group
 from models.model_hipizza import User, Item, Order
 from sqlalchemy.orm import selectinload
-from models.model import Ocupacao
+from models.model import Nova_mei, Ocupacao
 
 import random
 
@@ -14,6 +20,23 @@ import random
 #         session.commit()
 #         #session.refresh(new_class)
 #         print(new_class)
+
+def cadastrarNovaMei():
+    with Session(engine) as session:
+        nova_mei = Nova_mei(
+            id=None,
+            cpf=input("CPF: "),
+            objetivo_viabilidade=input("Objetivo Viabilidade: "),
+            cnae=input("CNAE: "),
+            cnae_secundario=input("CNAE 2o: "),
+            inscricao_endereco=input("Nr Inscricao Endereco: "),
+            tipo_endereco=input("Tipo de Endereço: "),
+            endereco=input("Digite o seu endereço: "),
+            nr_endereco=input("Nr Endereço: ")
+        )
+        session.add(nova_mei)
+        session.commit()
+        print(nova_mei)
 
 def cadastrarOcupacao(): 
     with Session(engine) as session:
@@ -238,7 +261,9 @@ def testeBuscaOrder(orderID):
 #         case _:
 #             break
 
-cadastrarOcupacao()
+# cadastrarOcupacao()
+cadastrarNovaMei()
+
 
 # def teste(v1 = 'Thiago'):
 #     print(v1)
