@@ -25,6 +25,7 @@ body {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* 6. Improve media defaults */
@@ -109,4 +110,9 @@ a {
 
 a:hover {
     background-color: #ff6600;
+}
+
+.cabecalho__wrapper {
+    display: inline-flex;
+    align-items: center;
 }
