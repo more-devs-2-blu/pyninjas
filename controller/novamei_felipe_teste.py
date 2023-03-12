@@ -5,7 +5,7 @@ from sqlmodel import Session
 
 
 # Função Criar Mei
-def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo_endereco: str, endereco: str, nr_endereco: str, ocupacoes: list[str]):   # Criação da Instancia no Banco de Dados
+def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo_endereco: str, endereco: str, nr_endereco: str, relacao_ocupacoes: list[RelacaoOcupacaoXNovaMEI]):   # Criação da Instancia no Banco de Dados
     with Session(engine) as session:
         nova_mei = Nova_mei(
             cpf=cpf,
@@ -14,33 +14,15 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
             tipo_endereco=tipo_endereco,
             endereco=endereco,
             nr_endereco=nr_endereco,
+            relacao_ocupacoes=relacao_ocupacoes
         )
         
         session.add(nova_mei)
         session.commit()
         session.refresh(nova_mei)
         
-        # Cria uma lista de ocupação e verifica se existe dentro do banco de dados e adiciona a ocupação
-        ocupacoes_list = []
-        for ocupacao_descricao in ocupacoes:
-            ocupacao = session.query(Ocupacao).filter_by(descricao=ocupacao_descricao).first()
-            if not ocupacao:
-                ocupacao = Ocupacao(descricao=ocupacao_descricao)
-                session.add(ocupacao)
-                session.commit()
-                session.refresh(ocupacao)
-            
-            ocupacoes_list.append(ocupacao)
-            
-        # Em seguida, ele cria uma nova relação entre a MEI recém-criada (nova_mei) e cada ocupação da lista de ocupações. Essa relação é armazenada na tabela de associação RelacaoOcupacaoXNovaMEI. Para cada ocupação, ele cria um objeto RelacaoOcupacaoXNovaMEI com a chave primária da nova MEI e a chave primária da ocupação, indicando que essa ocupação é primária para a MEI. O objeto é adicionado ao banco de dados e a transação é concluída com o comando commit().
-            nova_mei_ocupacao = RelacaoOcupacaoXNovaMEI(nova_mei_id=nova_mei.id, ocupacao_id=ocupacao.id, is_primario=True)
-            session.add(nova_mei_ocupacao)
-            session.commit()
-
-        nova_mei.relacao_ocupacoes = ocupacoes_list
+   
         
-        session.commit()
-        session.refresh(nova_mei)
         
         return nova_mei
 

@@ -37,7 +37,7 @@ def all_items(response: Response):
 )
 
 def create_item(item: Item, response: Response):
-    newItem = createItem(item)
+    newItem = createItem()
     if newItem:
         response.status_code = status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(newItem))
