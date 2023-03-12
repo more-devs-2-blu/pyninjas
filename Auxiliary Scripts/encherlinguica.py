@@ -3,6 +3,7 @@ from sqlmodel import Session, select
 # from models.model import ClassRoom, Student, Group
 from models.model_hipizza import User, Item, Order
 from sqlalchemy.orm import selectinload
+from models.model import Ocupacao
 
 import random
 
@@ -13,6 +14,17 @@ import random
 #         session.commit()
 #         #session.refresh(new_class)
 #         print(new_class)
+
+def cadastrarOcupacao(): 
+    with Session(engine) as session:
+        new_ocupacao = Ocupacao(
+                id=None,
+                descricao=input("Descricao: "),
+                cnae=input("CNAE:")
+        )
+        session.add(new_ocupacao)
+        session.commit()
+        print(new_ocupacao)
 
 def cadastrarUser():
     with Session(engine) as session:
@@ -225,6 +237,8 @@ def testeBuscaOrder(orderID):
 #             buscaClasseAlunos()
 #         case _:
 #             break
+
+cadastrarOcupacao()
 
 # def teste(v1 = 'Thiago'):
 #     print(v1)
