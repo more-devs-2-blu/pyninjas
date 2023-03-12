@@ -1,4 +1,4 @@
-from database import engine
+from db.database import engine
 from sqlmodel import Session, select
 # from models.model import ClassRoom, Student, Group
 from models.model_hipizza import User, Item, Order

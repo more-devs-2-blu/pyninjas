@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from database import SessionLocal
+from db.database import SessionLocal
 from models.model_hipizza import User
 
 router = APIRouter(

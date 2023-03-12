@@ -1,4 +1,4 @@
-from database import engine
+from db.database import engine
 from models.model_hipizza import Item
 
 from sqlmodel import Session
