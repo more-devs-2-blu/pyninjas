@@ -21,16 +21,15 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
         session.commit()
         session.refresh(nova_mei)
 
-        for i in range(len(ocupacoes)):
+        for i in range(len(ocupacoes)): 
+            is_primario = True if i == 0 else False
             cnae = RelacaoOcupacaoXNovaMEI(
                 nova_mei_id=nova_mei.id,
                 ocupacao_id=ocupacoes[i],
-                is_primario=True)
+                is_primario=is_primario)
             session.add(cnae)
             session.commit()
-            
 
-        
         return nova_mei
 
 # Inseridendo dados e cadastrando no banco de dados
