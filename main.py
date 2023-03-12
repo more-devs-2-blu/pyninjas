@@ -3,6 +3,7 @@ from fastapi import status
 from fastapi.middleware.cors import CORSMiddleware
 
 
+
 from db.database import engine
 
 

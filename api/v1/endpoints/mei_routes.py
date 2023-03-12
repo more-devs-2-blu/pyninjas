@@ -2,9 +2,13 @@ from controller.user_controller import editUser, createUser, deleteUser, findUse
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
+from controller.novamei_felipe_teste import createMei
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+from sqlmodel import Session, select
+from db.database import engine 
+from typing import List
 
 router = APIRouter()
 
@@ -16,8 +20,28 @@ router = APIRouter()
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def criaMei():
-    pass
+def criaMei(mei: Nova_mei, ocupacoes: List[Ocupacao], response: Response):
+    relacoes_ocupacoes = []
+    for ocupacao in ocupacoes:
+        relacao = RelacaoOcupacaoXNovaMEI(ocupacao=ocupacao)
+        relacoes_ocupacoes.append(relacao)
+    novo_mei = createMei(
+        cpf=mei.cpf,
+        objetivo_viabilidade=mei.objetivo_viabilidade,
+        inscricao_endereco=mei.inscricao_endereco,
+        tipo_endereco=mei.tipo_endereco,
+        endereco=mei.endereco,
+        nr_endereco=mei.nr_endereco,
+        relacao_ocupacoes=relacoes_ocupacoes
+    )
+    if novo_mei:
+        response.status_code = status.HTTP_200_OK
+        return JSONResponse(jsonable_encoder(novo_mei))
+    else:
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND
+
+
 
 # Busca a Solicitacao no Site
 @router.get(

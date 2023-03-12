@@ -55,6 +55,9 @@ class Nova_mei(SQLModel, table=True):
     tipo_endereco: str = Field(nullable=False)    
     endereco: str = Field(nullable=False)    
     nr_endereco: str = Field(nullable=False)
+
+    relacao_ocupacoes: List["RelacaoOcupacaoXNovaMEI"] = Relationship(back_populates="nova_mei")
+
     
     
 class Ocupacao(SQLModel, table=True):
@@ -69,3 +72,4 @@ class RelacaoOcupacaoXNovaMEI(SQLModel, table=True):
     ocupacao_id: int = Field(default=None, foreign_key="ocupacao.id")
     is_primario: bool = Field(default=True)
     
+    nova_mei: Optional[Nova_mei] = Relationship(back_populates="relacao_ocupacoes")
