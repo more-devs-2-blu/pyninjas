@@ -51,12 +51,10 @@ with Session(engine) as session:
     ocupacao = Ocupacao(descricao="Teste", cnae="123")
     relacao_ocupacao = RelacaoOcupacaoXNovaMEI(nova_mei=nova_mei, ocupacao=ocupacao, is_primario=True)
 
-    
+
     session.add(nova_mei)
     session.add(ocupacao)
     session.commit()
-    session.refresh(nova_mei)
-    session.refresh(ocupacao)
 
     print(nova_mei)
     print(ocupacao)
