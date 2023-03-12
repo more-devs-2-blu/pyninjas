@@ -77,6 +77,38 @@ header {
     align-items: center;
 }
 
+
+.content {
+    display: flex;
+    max-width: 80%;
+    /* justify-content: center; */
+    flex-direction: column;
+    margin: 250px auto 0px auto;
+
+}
+
+.alinhar_ao_centro {
+    text-align: center;
+}
+
+.um_do_lado_do_outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid;
+    margin-top: 5rem;
+}
+
+.um_do_lado_do_outro .order_2 {
+    order: 2;
+}
+
+
+.colunasimples {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
 .imagemlogo {
     display: inline-block;
 }
@@ -86,14 +118,14 @@ nav {
     margin-left: 500px;
 }
 
-ul {
+.cabecalho__wrapper ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-li {
+.cabecalho__wrapper li {
     display: inline-block;
     margin-right: 30px;
 }
@@ -115,4 +147,9 @@ a:hover {
 .cabecalho__wrapper {
     display: inline-flex;
     align-items: center;
+}
+
+.cabecalho__wrapper img {
+    height: 55px;
+    margin-left: 1rem;
 }
