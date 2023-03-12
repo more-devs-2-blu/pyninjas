@@ -8,11 +8,11 @@ from db.database import engine
 
 app = FastAPI(
     title='Agiliza MEI',
-    description='API de aplicação para agilizar o processo de abertura de empresas MEI no município de Blumenau/SC',
-    version='0.001beta',
+    description='API de Acelerar o Processo de Criacao de MEI',
+    version='0.5',
     contact={
-        "name": "Pyninjas",
-        "email": "contact@pyninjas.com"
+        "name": "pyNinjas",
+        "url": "https://github.com/more-devs-2-blu/pyninjas"
         }
     )
 
@@ -27,9 +27,13 @@ app.add_middleware(
 from api import api
 
 
-@app.get("/", status_code=status.HTTP_200_OK)
+@app.get(
+        "/", 
+        status_code=status.HTTP_200_OK,
+        tags=['index']
+        )
 def root():
-    return "Bem Vindos a Agiliza MEI"
+    return "Agiliza MEI"
 
 if __name__ == "__main__":
     import uvicorn
