@@ -6,12 +6,12 @@ from db.database import engine
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
 
 
-def allMei():
-    with Session(engine) as session:
-        statement = select(Nova_mei)
+# def allMei():
+#     with Session(engine) as session:
+#         statement = select(Nova_mei)
     
-        results = session.exec(statement).all()
-        return results
+#         results = session.exec(statement).all()
+#         return results
 
 def createMei(novaMei: Nova_mei):
     with Session(engine) as session:
@@ -44,62 +44,62 @@ def createMei(novaMei: Nova_mei):
             session.add(cnae)
             session.commit()
 
-def createUser(user: User):
-    with Session(engine) as session:
-        existing_user = session.query(User).filter(User.name == user.name).first()
-        if existing_user:
-            return {
-                "Message": f"Usuario com nome {user.name} já existe."
-                }
-        new_user = User(id=None, 
-                        name=user.name,
-                        email=user.email,
-                        phone=user.phone,
-                        whatsapp=user.whatsapp,
-                        password=user.password,
-                        address=user.address
-                        )
-        session.add(new_user)
-        session.commit()
-        session.refresh(new_user)
-        return new_user
+# def createUser(user: User):
+#     with Session(engine) as session:
+#         existing_user = session.query(User).filter(User.name == user.name).first()
+#         if existing_user:
+#             return {
+#                 "Message": f"Usuario com nome {user.name} já existe."
+#                 }
+#         new_user = User(id=None, 
+#                         name=user.name,
+#                         email=user.email,
+#                         phone=user.phone,
+#                         whatsapp=user.whatsapp,
+#                         password=user.password,
+#                         address=user.address
+#                         )
+#         session.add(new_user)
+#         session.commit()
+#         session.refresh(new_user)
+#         return new_user
 
 
-def findUser(id):
-    with Session(engine) as session:
-        statement = select(User).where(User.id == id)
+# def findUser(id):
+#     with Session(engine) as session:
+#         statement = select(User).where(User.id == id)
 
-        results = session.exec(statement).first()
-        print(results)
-        return results
-
-
-def editUser(userID, user: User):
-    with Session(engine) as session:
-        statement = select(User).where(User.id == userID)
-        results = session.exec(statement).first()
-        results.name = user.name
-        results.email = user.email
-        results.phone = user.phone
-        results.whatsapp = user.whatsapp
-        results.password = user.password
-        results.address = user.address
-
-        session.add(results)
-        session.commit()
-        session.refresh(results)
-        print(results)
-        return JSONResponse(content=jsonable_encoder(results))
+#         results = session.exec(statement).first()
+#         print(results)
+#         return results
 
 
-def deleteUser(userID):
-    with Session(engine) as session:
-        statement = select(User).where(User.id == userID)
-        results = session.exec(statement).first()
-        session.delete(results)
-        session.commit()
-        print(f"Apagou o usuario com ID {userID}")
-        return True
+# def editUser(userID, user: User):
+#     with Session(engine) as session:
+#         statement = select(User).where(User.id == userID)
+#         results = session.exec(statement).first()
+#         results.name = user.name
+#         results.email = user.email
+#         results.phone = user.phone
+#         results.whatsapp = user.whatsapp
+#         results.password = user.password
+#         results.address = user.address
+
+#         session.add(results)
+#         session.commit()
+#         session.refresh(results)
+#         print(results)
+#         return JSONResponse(content=jsonable_encoder(results))
+
+
+# def deleteUser(userID):
+#     with Session(engine) as session:
+#         statement = select(User).where(User.id == userID)
+#         results = session.exec(statement).first()
+#         session.delete(results)
+#         session.commit()
+#         print(f"Apagou o usuario com ID {userID}")
+#         return True
 
 
 # cadastrarUser()

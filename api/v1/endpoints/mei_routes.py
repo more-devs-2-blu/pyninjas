@@ -20,11 +20,11 @@ router = APIRouter()
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def criaMei(mei: Nova_mei, ocupacoes: List[Ocupacao], response: Response):
-    relacoes_ocupacoes = []
-    for ocupacao in ocupacoes:
-        relacao = RelacaoOcupacaoXNovaMEI(ocupacao=ocupacao)
-        relacoes_ocupacoes.append(relacao)
+def criaMei(mei: Nova_mei, ocupacoes: List[int], response: Response):
+    # relacoes_ocupacoes = []
+    # for ocupacao in ocupacoes:
+    #     relacao = RelacaoOcupacaoXNovaMEI(ocupacao=ocupacao)
+    #     relacoes_ocupacoes.append(relacao)
     novo_mei = createMei(
         cpf=mei.cpf,
         objetivo_viabilidade=mei.objetivo_viabilidade,
@@ -32,7 +32,7 @@ def criaMei(mei: Nova_mei, ocupacoes: List[Ocupacao], response: Response):
         tipo_endereco=mei.tipo_endereco,
         endereco=mei.endereco,
         nr_endereco=mei.nr_endereco,
-        relacao_ocupacoes=relacoes_ocupacoes
+        ocupacoes=ocupacoes
     )
     if novo_mei:
         response.status_code = status.HTTP_200_OK
