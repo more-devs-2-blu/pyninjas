@@ -9,7 +9,7 @@ from sqlmodel import Session, select
 # from models.model import ClassRoom, Student, Group
 from models.model_hipizza import User, Item, Order
 from sqlalchemy.orm import selectinload
-from models.model import Nova_mei, Ocupacao
+from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
 
 import random
 
@@ -24,19 +24,29 @@ import random
 def cadastrarNovaMei():
     with Session(engine) as session:
         nova_mei = Nova_mei(
-            id=None,
-            cpf=input("CPF: "),
-            objetivo_viabilidade=input("Objetivo Viabilidade: "),
-            cnae=input("CNAE: "),
-            cnae_secundario=input("CNAE 2o: "),
-            inscricao_endereco=input("Nr Inscricao Endereco: "),
-            tipo_endereco=input("Tipo de Endereço: "),
-            endereco=input("Digite o seu endereço: "),
-            nr_endereco=input("Nr Endereço: ")
+            # id=None,
+            cpf="12343",
+            objetivo_viabilidade="asdasd",
+            inscricao_endereco="asd",
+            tipo_endereco="Tipo de Endereço:",
+            endereco="Digite o seu endereço: ",
+            nr_endereco="Nr Endereço: "
         )
         session.add(nova_mei)
         session.commit()
+        session.refresh(nova_mei)
+        
         print(nova_mei)
+        
+        for i in range(3):
+            cnae = RelacaoOcupacaoXNovaMEI(
+                nova_mei_id=nova_mei.id,
+                ocupacao_id=int(input("ID da ocupacao: ")),
+                is_primario=False
+            )
+            session.add(cnae)
+            session.commit()
+        
 
 def cadastrarOcupacao(): 
     with Session(engine) as session:

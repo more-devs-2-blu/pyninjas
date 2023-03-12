@@ -35,10 +35,7 @@
 from typing import Optional, List, Type
 from sqlmodel import Field, SQLModel, Relationship
 
-class Ocupacao(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True, nullable=False)
-    descricao: str = Field()
-    cnae: str = Field()
+
 
 class Nova_mei(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True, nullable=False)
@@ -50,17 +47,25 @@ class Nova_mei(SQLModel, table=True):
     tipo_estabelecimento: str = Field(default="Matriz")
     
     # Esses dados sao fornecidos pelo requerente
-    cpf: str = Field (nullable=False, unique=True)
+    cpf: str = Field (nullable=False) #unique=True
     objetivo_viabilidade: str = Field (nullable= False)
 
-    cnae: List[Type[Ocupacao]] = Field()
-    cnae_secundario: List[Type[Ocupacao]] = Field()
 
-    inscricao_endereco: int = Field(nullable=False)    
+    inscricao_endereco: str = Field(nullable=False)    
     tipo_endereco: str = Field(nullable=False)    
     endereco: str = Field(nullable=False)    
     nr_endereco: str = Field(nullable=False)
-
     
+    
+class Ocupacao(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True, nullable=False)
+    descricao: str = Field()
+    cnae: str = Field()    
 
 
+class RelacaoOcupacaoXNovaMEI(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True, nullable=False)
+    nova_mei_id: int = Field(default=None, foreign_key="nova_mei.id")
+    ocupacao_id: int = Field(default=None, foreign_key="ocupacao.id")
+    is_primario: bool = Field(default=True)
+    
