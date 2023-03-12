@@ -2,7 +2,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from sqlmodel import Session, select
 
-from database import engine
+from db.database import engine
 from models.model_hipizza import User
 
 

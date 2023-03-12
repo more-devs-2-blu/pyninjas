@@ -1,9 +1,17 @@
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 import pandas as pd
 from sqlmodel import Session
-from database import engine
+from db.database import engine
 from models.model import Ocupacao
 
-data = pd.read_csv('lista_de_cnaes(mei).csv', sep=';', header=None)
+
+
+data = pd.read_csv('auxiliary/lista_de_cnaes.csv', sep=';', header=None)
 
 ocupacoes = []
 

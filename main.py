@@ -3,7 +3,7 @@ from fastapi import status
 from fastapi.middleware.cors import CORSMiddleware
 
 
-from database import engine
+from db.database import engine
 
 
 app = FastAPI(
