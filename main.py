@@ -7,12 +7,12 @@ from db.database import engine
 
 
 app = FastAPI(
-    title='Hi Pizza',
-    description='API de Administração e Gerencia de Pedidos de Pizzaria',
+    title='Agiliza MEI',
+    description='API de aplicação para agilizar o processo de abertura de empresas MEI no município de Blumenau/SC',
     version='0.001beta',
     contact={
-        "name": "Equipe os Confirmados",
-        "email": "elvis.o.rei@bluesuedshoes.com"
+        "name": "Pyninjas",
+        "email": "contact@pyninjas.com"
         }
     )
 
@@ -29,7 +29,7 @@ from api import api
 
 @app.get("/", status_code=status.HTTP_200_OK)
 def root():
-    return "Bem Vindos a Hi Pizza"
+    return "Bem Vindos a Agiliza MEI"
 
 if __name__ == "__main__":
     import uvicorn
