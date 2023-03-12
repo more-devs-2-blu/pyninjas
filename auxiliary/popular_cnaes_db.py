@@ -9,8 +9,6 @@ from sqlmodel import Session
 from db.database import engine
 from models.model import Ocupacao
 
-
-
 data = pd.read_csv('auxiliary/lista_de_cnaes.csv', sep=';', header=None)
 
 ocupacoes = []

@@ -7,12 +7,12 @@ from db.database import engine
 
 
 app = FastAPI(
-    title='Hi Pizza',
-    description='API de Administração e Gerencia de Pedidos de Pizzaria',
-    version='0.001beta',
+    title='Agiliza MEI',
+    description='API de Acelerar o Processo de Criacao de MEI',
+    version='0.5',
     contact={
-        "name": "Equipe os Confirmados",
-        "email": "elvis.o.rei@bluesuedshoes.com"
+        "name": "pyNinjas",
+        "url": "https://github.com/more-devs-2-blu/pyninjas"
         }
     )
 
@@ -27,9 +27,13 @@ app.add_middleware(
 from api import api
 
 
-@app.get("/", status_code=status.HTTP_200_OK)
+@app.get(
+        "/", 
+        status_code=status.HTTP_200_OK,
+        tags=['index']
+        )
 def root():
-    return "Bem Vindos a Hi Pizza"
+    return "Agiliza MEI"
 
 if __name__ == "__main__":
     import uvicorn
