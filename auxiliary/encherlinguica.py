@@ -255,6 +255,20 @@ def testeBuscaOrder(orderID):
         print(item_id)
 
 
+def buscaNovaMEI(id):
+    with Session(engine) as session:
+        statement = select(Nova_mei).where(Nova_mei.id==id)
+        
+        results = session.exec(statement).first()
+        
+        statement_cnaes = select(RelacaoOcupacaoXNovaMEI).where(RelacaoOcupacaoXNovaMEI.nova_mei_id == id)
+        results_cnaes = session.exec(statement_cnaes).all()
+        
+        print("MEI:\n ", results)
+        print("\nCNAES: ", results_cnaes)
+        return results
+
+
 
 # while True:
 #     print("Escolha uma das opções: ")
@@ -272,7 +286,9 @@ def testeBuscaOrder(orderID):
 #             break
 
 # cadastrarOcupacao()
-cadastrarNovaMei()
+# cadastrarNovaMei()
+
+buscaNovaMEI(5)
 
 
 # def teste(v1 = 'Thiago'):
