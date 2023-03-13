@@ -7,7 +7,6 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from db.database import engine
 from sqlmodel import Session, select
 # from models.model import ClassRoom, Student, Group
-from models.model_hipizza import User, Item, Order
 from sqlalchemy.orm import selectinload
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
 
