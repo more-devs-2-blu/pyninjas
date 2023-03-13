@@ -91,15 +91,15 @@ def editarMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int], response: Respon
     
 
 
-# Busca lista de CNAEs para MEI
+# Pesquisa a lista de Ocupacao por descricao ou codigo de CNAEs
 @router.get(
     '/cnaes',
-    summary='Exibe a Lista de CNAEs para MEI',
-    description='Lista de CNAEs para MEI',
+    summary='Pesquisa a Ocupação MEI por descrição ou código CNAE',
+    description='Pesquisa a Ocupação MEI por descrição ou código MEI',
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
+def pesquisaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
     pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
     if pesquisa_cnaes:
         response.status_code = status.HTTP_200_OK
@@ -108,13 +108,19 @@ def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
         response.status = status.HTTP_404_NOT_FOUND
         return status.HTTP_404_NOT_FOUND
 
-# Busca lista de CNAEs registrada na Solicitacao da MEI
+#Busca a lista de todos os CNAEs
 @router.get(
-    '/cnaes/{id}',
-    summary='Busca a Lista de CNAEs por atrelada a uma determinada Solicitação',
-    description='CNAEs atrelados a uma Solicitação Especifica',
+    '/lista_cnaes',
+    summary='Busca a lista de todos os CNAEs',
+    description='Busca a lista de todos os CNAEs',
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def cnaesID():
-    pass
+def listaCNAES(response: Response):
+    lista_cnaes = pesquisaCnaes()
+    if lista_cnaes:
+        response.status_code = status.HTTP_200_OK
+        return JSONResponse(content=jsonable_encoder(lista_cnaes))
+    else:
+        response.status = status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND

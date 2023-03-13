@@ -83,7 +83,7 @@ def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
         session.refresh(edit_mei)
 
         return JSONResponse(jsonable_encoder(edit_mei))
-        
+
 
 
 def pesquisaCnaes(descricao: str = None, cnae: str = None):
@@ -93,6 +93,15 @@ def pesquisaCnaes(descricao: str = None, cnae: str = None):
             statement = statement.filter(Ocupacao.descricao.like(f'%{descricao.upper()}%'))
         if cnae is not None:
             statement = statement.filter(Ocupacao.cnae.like(f'%{cnae}%'))
+        
+        results = session.exec(statement).all()
+        return results
+    
+    
+    
+def listaCnaes():
+    with Session(engine) as session:
+        statement = select(Ocupacao)
         
         results = session.exec(statement).all()
         return results
