@@ -64,12 +64,13 @@ def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
         edit_mei.endereco = mei.endereco
         edit_mei.nr_endereco = mei.nr_endereco
 
-        
-        session.add(edit_mei)
-        session.commit()
-        session.refresh(edit_mei)
 
-        #atualiza os dados da ocupacao
+
+        # Remove todas as relações antigas de ocupação
+        for relacao in edit_mei.relacao_ocupacoes:
+            session.delete(relacao)
+
+        # Cria novas relações para as ocupações fornecidas
         for i in range(len(ocupacoes)): 
             is_primario = True if i == 0 else False
             cnae = RelacaoOcupacaoXNovaMEI(
@@ -78,9 +79,9 @@ def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
                 is_primario=is_primario)
             
             session.add(cnae)
-            session.commit()
-            session.refresh(cnae)
-
+           
+        session.commit()
+        session.refresh(edit_mei)
 
         return JSONResponse(jsonable_encoder(edit_mei))
         
