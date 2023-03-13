@@ -59,7 +59,7 @@ def pesquisaCnaes(descricao: str = None, cnae: str = None):
         if descricao is not None:
             statement = statement.filter(Ocupacao.descricao.like(f'%{descricao}%'))
         if cnae is not None:
-            statement = statement.filter(Ocupacao.descricao.like(f'%{cnae}%'))
+            statement = statement.filter(Ocupacao.cnae.like(f'%{cnae}%'))
             
         results = session.exec(statement).all()
         return results
