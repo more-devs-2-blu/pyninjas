@@ -99,8 +99,11 @@ def editarMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int], response: Respon
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def pesquisaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
-    pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
+def pesquisaCNAES(response: Response, descricao: str = None, cnae: str = None):
+    if descricao is None and cnae is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "Por favor, forneça pelo menos uma descrição ou um código CNAE."}
+    pesquisa_cnaes = pesquisaCnaes(descricao,cnae)
     if pesquisa_cnaes:
         response.status_code = status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(pesquisa_cnaes))
