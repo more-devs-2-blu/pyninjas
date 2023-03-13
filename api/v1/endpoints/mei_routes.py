@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
-from controller.novamei_controller import createMei, findMei, allCnaes
+from controller.novamei_controller import createMei, findMei, allCnaes, pesquisaCnaes
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
@@ -53,7 +53,7 @@ def criaMei(mei: Nova_mei, ocupacoes: List[int], response: Response):
 def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
     if not Nova_meiID and not CPF:
         response.status_code=status.HTTP_400_BAD_REQUEST
-        return {'detail': 'É necessário fornecer ao menos um parâmetro de busca (ID ou cpf)'}
+        return {'detail': 'É necessário fornecer ao menos um parâmetro de busca (ID ou CPF)'}
     
     finded_mei = findMei(Nova_meiID=Nova_meiID, CPF=CPF)
     if finded_mei:
@@ -100,5 +100,11 @@ def listaCNAES(response: Response):
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def buscaCNAEsporID():
-    pass
+def buscaCNAEsporDescricao(response: Response, pesquisa: str = None, cnae: str = None):
+    pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
+    if pesquisa_cnaes:
+        response.status_code = status.HTTP_200_OK
+        return JSONResponse(content=jsonable_encoder(pesquisa_cnaes))
+    else:
+        response.status = status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND
