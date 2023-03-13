@@ -83,7 +83,7 @@ header {
     max-width: 80%;
     /* justify-content: center; */
     flex-direction: column;
-    margin: 250px auto 0px auto;
+    margin: 120px auto 0px auto;
 
 }
 
@@ -91,22 +91,75 @@ header {
     text-align: center;
 }
 
+.titulo_topo h1, .titulo_topo h3, .titulo_topo a {
+    margin-bottom: 1.2rem;
+}
+
+
+
 .um_do_lado_do_outro {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
-    border: 1px solid;
-    margin-top: 5rem;
+    /* border: 1px solid; */
+    margin-top: 3rem;
 }
 
 .um_do_lado_do_outro .order_2 {
     order: 2;
 }
 
+.altura_igual {
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 1.5rem;
+}
 
 .colunasimples {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+}
+
+.bloco1 img {
+    max-width: 800px;
+}
+
+.bloco7 ul {
+    padding-left: 0;
+}
+
+.bloco7 ul li {
+    list-style: none;
+    margin-bottom: 8px;
+
+}
+
+.align_text_vertical {
+    display: flex;
+    align-items: center;
+}
+
+.align_text_margin {
+    display: flex;
+    align-items: center;
+    margin: 45px;
+}
+
+.bloco_margin li {
+    margin-bottom: 30px;            
+}
+
+.only_text_block {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+}
+
+.imgFlexEnd {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .imagemlogo {
@@ -157,8 +210,6 @@ a:hover {
     height: 55px;
     margin-left: 1rem;
 }
-
-
 
 #cadastrolink{
     background-color: #ff0000;
@@ -227,3 +278,4 @@ input{
 footer{
     background-color: #3a779d;
 }
+
