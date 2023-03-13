@@ -34,12 +34,11 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
 def findMei(Nova_meiID: int):
     with Session(engine) as session:
-        statement = select(Nova_mei, RelacaoOcupacaoXNovaMEI).join(RelacaoOcupacaoXNovaMEI).where(Nova_mei.id == Nova_meiID)
-        results = session.exec(statement).first()
+        statement = select(RelacaoOcupacaoXNovaMEI, Nova_mei).join(Nova_mei).where(Nova_mei.id == Nova_meiID)
+        results = session.exec(statement).all()
         return results
 
     
-
 def allCnaes():
     with Session(engine) as session:
         statement = select(Ocupacao)
