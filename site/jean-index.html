@@ -34,12 +34,65 @@
     </main>
 
     <div id="consulta">
-        <p>Entre com o seu CPF</p>
-        <input type="text" name="cpf_consulta" id="cpf_consulta">
+        <div class="wrapper">
+            <p class="titulo">Entre com o seu CPF</p>
+            <input type="text" name="cpf_consulta" id="cpf_consulta">
+            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+        </div>
     </div>
 
     <div id="cadastro">
-        
+        <div class="wrapper">
+        <form class="formulario">
+            <div class="formulario__titulo">
+                <p class="titulo">Cadastrar</p>
+            </div>
+            <label for="viabilidade">Objetivo da Consulta de Viabilidade</label>
+            <select id="opcao__viabilidade" name="opcao__viabilidade">
+                <option value="0">SELECIONE</option>
+                <option value="1">Inscrição inicial</option>
+                <option value="2">Alteração de endereço</option>
+                <option value="3">Alteração de atividade econômica (CNAE)</option>
+                <option value="4">Alteração de endereço e Alteração de atividade econômica (CNAE)</option>
+                <option value="5">Transformação Societária</option>
+                <option value="6">Outras exigências/adequações de orgãos municipais (SEMMAS, VIG. SANIT., S.I.M. e outros)</option>
+                <option value="7">Alteração de endereço e Transformação Societária</option>
+                <option value="8">Alteração de atividade econômica (CNAE) e Transformação Societária</option>
+                <option value="9">Transformação Societária e Alteração de endereço e alteração de atividade econômica</option>  
+            </select>
+            
+            <label for="requerente">CPF/CNPJ Requerente</label>
+            <input type="text" id="requerente" name="requerente">
+            
+            <label for="cnaeprincipal">CNAE Principal</label>
+            <input type="text" id="cnaeprincipal" name="cnaeprincipal">
+            
+            <label for="cnaessecundarias">CNAES Secundárias</label>
+            <input id="cnaessecundarias" name="cnaessecundarias">
+            
+            <div class="formulario__tituloE">
+                <p class="titulo">Endereço</p>
+            </div>
+
+            <label for="inscricaocadastral">Inscrição Cadastral</label>
+            <input type="text" id="inscricaocadastral" name="inscricaocadastral">
+            
+            <label for="tipologradouro">Tipo Logradouro</label>
+            <input type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc.">
+            
+            <label for="logradouro">Logradouro</label>
+            <input id="logradouro" name="logradouro">
+
+            <label for="numero">Número</label>
+            <input id="numero" name="numero">
+            
+            <label for="numerocadastro">Número Cadastro</label>
+            <input id="numerocadastro" name="numerocadastro">
+
+            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+
+        </form>
+    </div>
     </div>
 
 

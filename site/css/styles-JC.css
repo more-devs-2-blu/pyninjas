@@ -13,10 +13,10 @@
 }
 
 /* 3. Allow percentage-based heights in the application */
-html,
+/* html,
 body {
     height: 100%;
-}
+} */
 
 /* Typographic tweaks! 
     4. Add accessible line-height
@@ -70,6 +70,13 @@ body {
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,104,125,1) 100%);
 }
 
+.titulo {
+    font-size: 1.5rem;
+    color: #2f5877;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #2f58772c;
+}
 
 header {
     margin: 1rem;
@@ -199,4 +206,32 @@ a:hover {
 .cabecalho__wrapper img {
     height: 55px;
     margin-left: 1rem;
+}
+
+/*----- inputs -----*/
+
+input, select {
+    border: 0px;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    margin-top: .2rem;
+}
+
+#consulta, #cadastro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 2rem;
+}
+
+#cadastro label {
+    display: flex;
+    justify-content: left;
+}
+
+#consulta .wrapper, #cadastro .wrapper {
+    text-align: center;
+    max-width: 400px;
 }
