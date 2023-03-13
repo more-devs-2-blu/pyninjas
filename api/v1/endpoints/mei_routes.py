@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
-from controller.novamei_controller import createMei, findMei, allCnaes, pesquisaCnaes
+from controller.novamei_controller import createMei, findMei, pesquisaCnaes
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
@@ -83,24 +83,7 @@ def editarMei():
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def listaCNAES(response: Response):
-    all_cnaes = allCnaes()
-    if all_cnaes:
-        response.status_code = status.HTTP_200_OK
-        return JSONResponse(content=jsonable_encoder(all_cnaes))
-    else:
-        response.status = status.HTTP_404_NOT_FOUND
-        return status.HTTP_404_NOT_FOUND
-
-# Busca lista de CNAEs registrada na Solicitacao da MEI
-@router.get(
-    '/cnaes/{id}',
-    summary='Busca a Lista de CNAEs atrelada a uma determinada Solicitação',
-    description='CNAEs atrelados a uma Solicitação Especifica',
-    status_code=status.HTTP_200_OK,
-    tags=['CNAES']
-)
-def buscaCNAEsporDescricao(response: Response, pesquisa: str = None, cnae: str = None):
+def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
     pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
     if pesquisa_cnaes:
         response.status_code = status.HTTP_200_OK
@@ -108,3 +91,14 @@ def buscaCNAEsporDescricao(response: Response, pesquisa: str = None, cnae: str =
     else:
         response.status = status.HTTP_404_NOT_FOUND
         return status.HTTP_404_NOT_FOUND
+
+# Busca lista de CNAEs registrada na Solicitacao da MEI
+@router.get(
+    '/cnaes/{id}',
+    summary='Busca a Lista de CNAEs por atrelada a uma determinada Solicitação',
+    description='CNAEs atrelados a uma Solicitação Especifica',
+    status_code=status.HTTP_200_OK,
+    tags=['CNAES']
+)
+def cnaesID():
+    pass

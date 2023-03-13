@@ -33,6 +33,7 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
         return nova_mei
 
+
 def findMei(Nova_meiID: int = None, CPF: str = None):
     with Session(engine) as session:
         query = select(RelacaoOcupacaoXNovaMEI, Nova_mei).join(Nova_mei)
@@ -44,15 +45,8 @@ def findMei(Nova_meiID: int = None, CPF: str = None):
         
         results = session.exec(query).all()
         return results
-
-    
-def allCnaes():
-    with Session(engine) as session:
-        statement = select(Ocupacao)
-        
-        results = session.exec(statement).all()
-        return results
-    
+  
+   
 def pesquisaCnaes(descricao: str = None, cnae: str = None):
     with Session(engine) as session:
         statement = select(Ocupacao)
