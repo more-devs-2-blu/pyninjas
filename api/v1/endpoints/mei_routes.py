@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
-from controller.novamei_controller import createMei, findMei, pesquisaCnaes
+from controller.novamei_controller import createMei, findMei, pesquisaCnaes, updateMei
+from sqlmodel import Session, select
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
@@ -50,6 +51,7 @@ def criaMei(mei: Nova_mei, ocupacoes: List[int], response: Response):
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
+
 def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
     if not Nova_meiID and not CPF:
         response.status_code=status.HTTP_400_BAD_REQUEST
@@ -65,15 +67,24 @@ def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
   
 
 # Edita a Solicitacao no Site
-@router.post(
-    '/novamei/{id}',
+@router.patch(
+    '/editamei/{id}',
     summary='Edita uma Solicitação pelo Codigo ou CPF',
     description='Edita a Solicitação pelo ID',
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def editarMei():
-    pass
+def editarMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int], response: Response):
+    meiEditado = updateMei(mei_id, mei, ocupacoes)
+    if not meiEditado:
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {'detail': f'MEI com ID {mei_id} não encontrado.'}
+
+    # retorna o MEI atualizado
+    response.status_code = status.HTTP_200_OK
+    return JSONResponse(jsonable_encoder(meiEditado))
+    
+
 
 # Busca lista de CNAEs para MEI
 @router.get(

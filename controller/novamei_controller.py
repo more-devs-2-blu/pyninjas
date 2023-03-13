@@ -3,7 +3,9 @@ from datetime import datetime
 from models.model import Nova_mei, RelacaoOcupacaoXNovaMEI, Ocupacao
 from sqlmodel import Session, select
 from typing import List
-from sqlalchemy import or_
+from fastapi import HTTPException
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 
 
 # Função Criar Mei
@@ -36,7 +38,8 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
 def findMei(Nova_meiID: int = None, CPF: str = None):
     with Session(engine) as session:
-        query = select(RelacaoOcupacaoXNovaMEI, Nova_mei).join(Nova_mei)
+        query = select(Nova_mei).join(RelacaoOcupacaoXNovaMEI).where(Nova_mei.id == Nova_meiID)
+
         
         if Nova_meiID:
             query = query.where(Nova_mei.id == Nova_meiID)
@@ -46,14 +49,50 @@ def findMei(Nova_meiID: int = None, CPF: str = None):
         results = session.exec(query).all()
         return results
   
-   
+def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
+    # Busca o MEI no banco de dados
+    with Session(engine) as session:
+        edit_mei = session.get(Nova_mei, mei_id)
+        if edit_mei is None:
+            raise HTTPException(status_code=404, detail="MEI não encontrado")
+        
+        # Atualiza os dados do MEI
+        edit_mei.cpf = mei.cpf
+        edit_mei.objetivo_viabilidade = mei.objetivo_viabilidade
+        edit_mei.inscricao_endereco = mei.inscricao_endereco
+        edit_mei.tipo_endereco = mei.tipo_endereco
+        edit_mei.endereco = mei.endereco
+        edit_mei.nr_endereco = mei.nr_endereco
+
+        
+        session.add(edit_mei)
+        session.commit()
+        session.refresh(edit_mei)
+
+        #atualiza os dados da ocupacao
+        for i in range(len(ocupacoes)): 
+            is_primario = True if i == 0 else False
+            cnae = RelacaoOcupacaoXNovaMEI(
+                nova_mei_id=edit_mei.id,
+                ocupacao_id=ocupacoes[i],
+                is_primario=is_primario)
+            
+            session.add(cnae)
+            session.commit()
+            session.refresh(cnae)
+
+
+        return JSONResponse(jsonable_encoder(edit_mei))
+        
+
+
 def pesquisaCnaes(descricao: str = None, cnae: str = None):
     with Session(engine) as session:
         statement = select(Ocupacao)
         if descricao is not None:
-            statement = statement.filter(Ocupacao.descricao.like(f'%{descricao}%'))
+            statement = statement.filter(Ocupacao.descricao.like(f'%{descricao.upper()}%'))
         if cnae is not None:
             statement = statement.filter(Ocupacao.cnae.like(f'%{cnae}%'))
-            
+        
         results = session.exec(statement).all()
         return results
