@@ -58,6 +58,7 @@ def buscaMei(Nova_meiID: int, response: Response):
     else:
         response.status_code=status.HTTP_404_NOT_FOUND
         return status.HTTP_404_NOT_FOUND
+  
 
 # Edita a Solicitacao no Site
 @router.post(
