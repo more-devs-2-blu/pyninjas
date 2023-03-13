@@ -9,7 +9,7 @@ from db.database import engine
 
 app = FastAPI(
     title='Agiliza MEI',
-    description='API de Acelerar o Processo de Criacao de MEI',
+    description='API - Acelerar o Processo de Criacao de MEI',
     version='0.5',
     contact={
         "name": "pyNinjas",

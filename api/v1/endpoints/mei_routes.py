@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
-from controller.novamei_controller import createMei, findMei, allCnaes
+from controller.novamei_controller import createMei, findMei, pesquisaCnaes, updateMei
+from sqlmodel import Session, select
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
@@ -50,25 +51,40 @@ def criaMei(mei: Nova_mei, ocupacoes: List[int], response: Response):
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def buscaMei(Nova_meiID: int, response: Response):
-    finded_mei = findMei(Nova_meiID)
+
+def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
+    if not Nova_meiID and not CPF:
+        response.status_code=status.HTTP_400_BAD_REQUEST
+        return {'detail': 'É necessário fornecer ao menos um parâmetro de busca (ID ou CPF)'}
+    
+    finded_mei = findMei(Nova_meiID=Nova_meiID, CPF=CPF)
     if finded_mei:
         response.status_code=status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(finded_mei))
     else:
         response.status_code=status.HTTP_404_NOT_FOUND
-        return status.HTTP_404_NOT_FOUND
+        return {'detail': 'Solicitação não encontrada'}
+  
 
 # Edita a Solicitacao no Site
-@router.post(
-    '/novamei/{id}',
+@router.patch(
+    '/editamei',
     summary='Edita uma Solicitação pelo Codigo ou CPF',
     description='Edita a Solicitação pelo ID',
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def editarMei():
-    pass
+def editarMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int], response: Response):
+    meiEditado = updateMei(mei_id, mei, ocupacoes)
+    if not meiEditado:
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {'detail': f'MEI com ID {mei_id} não encontrado.'}
+
+    # retorna o MEI atualizado
+    response.status_code = status.HTTP_200_OK
+    return JSONResponse(jsonable_encoder(meiEditado))
+    
+
 
 # Busca lista de CNAEs para MEI
 @router.get(
@@ -78,11 +94,11 @@ def editarMei():
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def listaCNAES(response: Response):
-    all_cnaes = allCnaes()
-    if all_cnaes:
+def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
+    pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
+    if pesquisa_cnaes:
         response.status_code = status.HTTP_200_OK
-        return JSONResponse(content=jsonable_encoder(all_cnaes))
+        return JSONResponse(content=jsonable_encoder(pesquisa_cnaes))
     else:
         response.status = status.HTTP_404_NOT_FOUND
         return status.HTTP_404_NOT_FOUND
@@ -90,10 +106,10 @@ def listaCNAES(response: Response):
 # Busca lista de CNAEs registrada na Solicitacao da MEI
 @router.get(
     '/cnaes/{id}',
-    summary='Busca a Lista de CNAEs atrelada a uma determinada Solicitação',
+    summary='Busca a Lista de CNAEs por atrelada a uma determinada Solicitação',
     description='CNAEs atrelados a uma Solicitação Especifica',
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def buscaCNAEsporID():
+def cnaesID():
     pass
