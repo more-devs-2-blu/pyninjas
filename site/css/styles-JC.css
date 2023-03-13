@@ -132,6 +132,7 @@ header .header__buttons .consultar:hover {
     padding: 1rem 2rem;
     border: 0px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .content {
