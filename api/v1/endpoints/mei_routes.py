@@ -57,9 +57,14 @@ def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
         response.status_code=status.HTTP_400_BAD_REQUEST
         return {'detail': 'É necessário fornecer ao menos um parâmetro de busca (ID ou CPF)'}
     
-    finded_mei = findMei(Nova_meiID=Nova_meiID, CPF=CPF)
+    finded_mei = None
+    if Nova_meiID is not None:
+        finded_mei = findMei(Nova_meiID=Nova_meiID)
+    elif CPF is not None:
+        finded_mei = findMei(CPF=CPF)
+
     if finded_mei:
-        response.status_code=status.HTTP_200_OK
+        response.status_code = status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(finded_mei))
     else:
         response.status_code=status.HTTP_404_NOT_FOUND
@@ -86,16 +91,19 @@ def editarMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int], response: Respon
     
 
 
-# Busca lista de CNAEs para MEI
+# Pesquisa a lista de Ocupacao por descricao ou codigo de CNAEs
 @router.get(
     '/cnaes',
-    summary='Exibe a Lista de CNAEs para MEI',
-    description='Lista de CNAEs para MEI',
+    summary='Pesquisa a Ocupação MEI por descrição ou código CNAE',
+    description='Pesquisa a Ocupação MEI por descrição ou código MEI',
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
-    pesquisa_cnaes = pesquisaCnaes(pesquisa,cnae)
+def pesquisaCNAES(response: Response, descricao: str = None, cnae: str = None):
+    if descricao is None and cnae is None:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return {"detail": "Por favor, forneça pelo menos uma descrição ou um código CNAE."}
+    pesquisa_cnaes = pesquisaCnaes(descricao,cnae)
     if pesquisa_cnaes:
         response.status_code = status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(pesquisa_cnaes))
@@ -103,13 +111,19 @@ def listaCNAES(response: Response, pesquisa: str = None, cnae: str = None):
         response.status = status.HTTP_404_NOT_FOUND
         return status.HTTP_404_NOT_FOUND
 
-# Busca lista de CNAEs registrada na Solicitacao da MEI
+#Busca a lista de todos os CNAEs
 @router.get(
-    '/cnaes/{id}',
-    summary='Busca a Lista de CNAEs por atrelada a uma determinada Solicitação',
-    description='CNAEs atrelados a uma Solicitação Especifica',
+    '/lista_cnaes',
+    summary='Busca a lista de todos os CNAEs',
+    description='Busca a lista de todos os CNAEs',
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def cnaesID():
-    pass
+def listaCNAES(response: Response):
+    lista_cnaes = pesquisaCnaes()
+    if lista_cnaes:
+        response.status_code = status.HTTP_200_OK
+        return JSONResponse(content=jsonable_encoder(lista_cnaes))
+    else:
+        response.status = status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND

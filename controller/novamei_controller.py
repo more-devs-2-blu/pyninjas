@@ -38,8 +38,7 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
 def findMei(Nova_meiID: int = None, CPF: str = None):
     with Session(engine) as session:
-        query = select(Nova_mei).join(RelacaoOcupacaoXNovaMEI).where(Nova_mei.id == Nova_meiID)
-
+        query = select(Nova_mei, RelacaoOcupacaoXNovaMEI).join(RelacaoOcupacaoXNovaMEI)
         
         if Nova_meiID:
             query = query.where(Nova_mei.id == Nova_meiID)
@@ -48,7 +47,7 @@ def findMei(Nova_meiID: int = None, CPF: str = None):
         
         results = session.exec(query).all()
         return results
-  
+
 def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
     # Busca o MEI no banco de dados
     with Session(engine) as session:
@@ -84,7 +83,7 @@ def updateMei(mei_id: int, mei: Nova_mei, ocupacoes: List[int] = None):
         session.refresh(edit_mei)
 
         return JSONResponse(jsonable_encoder(edit_mei))
-        
+
 
 
 def pesquisaCnaes(descricao: str = None, cnae: str = None):
@@ -94,6 +93,15 @@ def pesquisaCnaes(descricao: str = None, cnae: str = None):
             statement = statement.filter(Ocupacao.descricao.like(f'%{descricao.upper()}%'))
         if cnae is not None:
             statement = statement.filter(Ocupacao.cnae.like(f'%{cnae}%'))
+        
+        results = session.exec(statement).all()
+        return results
+    
+    
+    
+def listaCnaes():
+    with Session(engine) as session:
+        statement = select(Ocupacao)
         
         results = session.exec(statement).all()
         return results

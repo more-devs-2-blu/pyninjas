@@ -84,6 +84,7 @@ header {
     /* justify-content: center; */
     flex-direction: column;
     margin: 120px auto 0px auto;
+    max-width: 1080px;
 
 }
 
@@ -94,8 +95,6 @@ header {
 .titulo_topo h1, .titulo_topo h3, .titulo_topo a {
     margin-bottom: 1.2rem;
 }
-
-
 
 .um_do_lado_do_outro {
     display: grid !important;
@@ -127,6 +126,23 @@ header {
     max-width: 800px;
 }
 
+.bloco3 img {
+    max-height: 60%;
+    margin-top: 50px;
+}
+
+.img400px img {
+    max-height: 400px;
+}
+
+.img540px img {
+    max-height: 540px;
+}
+
+.bloco7 {
+    margin-bottom: 50px;
+}
+
 .bloco7 ul {
     padding-left: 0;
 }
@@ -134,7 +150,6 @@ header {
 .bloco7 ul li {
     list-style: none;
     margin-bottom: 8px;
-
 }
 
 .align_text_vertical {
