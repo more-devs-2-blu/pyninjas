@@ -23,7 +23,7 @@ O projeto de aceleração de abertura de empresas foi criado para simplificar e 
 - Para começar, clone o repositório do projeto para o seu computador:
 - Copy code
 ```bash
-$ git clone https://github.com/seu-usuario/nome-do-projeto.git
+$ git clone https://github.com/more-devs-2-blu/pyninjas.git
 ```
 
 - Em seguida, crie um ambiente virtual e ative-o:
