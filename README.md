@@ -101,9 +101,8 @@ Este é um projeto aberto, e todos estão convidados a contribuir para o seu des
 - Faça um pull request para o branch master.
 
 <details>
-  <summary> Clique aqui para ver o código </summary>
-- 🎉 Agradecimentos 🎉
-
+  <summary> Clique aqui para ver os Agradecimentos </summary>
+  
 🎉 Quero agradecer ao professor andré zuplaaeiii pela incrível jornada de aprendizado que tivemos juntos neste curso. Foi uma experiência enriquecedora que me permitiu aprimorar minhas habilidades em programação e desenvolvimento de software.🎉
 
 🚀 Também quero agradecer a turma do moredevs2blu pela parceria, amizade e troca de conhecimentos ao longo do curso. A colaboração e o trabalho em equipe foram fundamentais para o nosso sucesso e crescimento profissional.🚀
