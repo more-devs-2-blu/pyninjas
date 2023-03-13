@@ -57,9 +57,14 @@ def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
         response.status_code=status.HTTP_400_BAD_REQUEST
         return {'detail': 'É necessário fornecer ao menos um parâmetro de busca (ID ou CPF)'}
     
-    finded_mei = findMei(Nova_meiID=Nova_meiID, CPF=CPF)
+    finded_mei = None
+    if Nova_meiID is not None:
+        finded_mei = findMei(Nova_meiID=Nova_meiID)
+    elif CPF is not None:
+        finded_mei = findMei(CPF=CPF)
+
     if finded_mei:
-        response.status_code=status.HTTP_200_OK
+        response.status_code = status.HTTP_200_OK
         return JSONResponse(content=jsonable_encoder(finded_mei))
     else:
         response.status_code=status.HTTP_404_NOT_FOUND
