@@ -13,10 +13,10 @@
 }
 
 /* 3. Allow percentage-based heights in the application */
-/* html,
+html,
 body {
-    height: 100%;
-} */
+    min-height: 100%;
+}
 
 /* Typographic tweaks! 
     4. Add accessible line-height
@@ -132,6 +132,7 @@ header .header__buttons .consultar:hover {
     padding: 1rem 2rem;
     border: 0px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .content {
@@ -234,4 +235,10 @@ input, select {
 #consulta .wrapper, #cadastro .wrapper {
     text-align: center;
     max-width: 400px;
+}
+
+#cpf_consulta {
+    text-align: center !important;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
