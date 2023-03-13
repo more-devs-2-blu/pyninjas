@@ -3,6 +3,7 @@ from datetime import datetime
 from models.model import Nova_mei, RelacaoOcupacaoXNovaMEI, Ocupacao
 from sqlmodel import Session, select
 from typing import List
+from sqlalchemy import or_
 
 
 # Função Criar Mei
@@ -32,10 +33,16 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
         return nova_mei
 
-def findMei(Nova_meiID: int):
+def findMei(Nova_meiID: int = None, CPF: str = None):
     with Session(engine) as session:
-        statement = select(RelacaoOcupacaoXNovaMEI, Nova_mei).join(Nova_mei).where(Nova_mei.id == Nova_meiID)
-        results = session.exec(statement).all()
+        query = select(RelacaoOcupacaoXNovaMEI, Nova_mei).join(Nova_mei)
+        
+        if Nova_meiID:
+            query = query.where(Nova_mei.id == Nova_meiID)
+        elif CPF:
+            query = query.where(Nova_mei.cpf == CPF)
+        
+        results = session.exec(query).all()
         return results
 
     
