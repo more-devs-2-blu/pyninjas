@@ -52,3 +52,14 @@ def allCnaes():
         
         results = session.exec(statement).all()
         return results
+    
+def pesquisaCnaes(descricao: str = None, cnae: str = None):
+    with Session(engine) as session:
+        statement = select(Ocupacao)
+        if descricao is not None:
+            statement = statement.filter(Ocupacao.descricao.like(f'%{descricao}%'))
+        if cnae is not None:
+            statement = statement.filter(Ocupacao.descricao.like(f'%{cnae}%'))
+            
+        results = session.exec(statement).all()
+        return results
