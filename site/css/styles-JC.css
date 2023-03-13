@@ -1,0 +1,237 @@
+/*--- HTML RESET template: https://www.joshwcomeau.com/css/custom-css-reset/ ---*/
+
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+
+/* 3. Allow percentage-based heights in the application */
+/* html,
+body {
+    height: 100%;
+} */
+
+/* Typographic tweaks! 
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 7. Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 9. Create a root stacking context */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* ---------------------------------- INICIO DO CSS --------------------------------------*/
+
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,104,125,1) 100%);
+}
+
+.titulo {
+    font-size: 1.5rem;
+    color: #2f5877;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #2f58772c;
+}
+
+header {
+    margin: 1rem;
+    margin-top: 3rem;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2f5877;
+}
+header p:nth-child(3) {
+    font-size: 2.8rem;
+    line-height: 1.5rem;
+}
+
+header p:nth-child(5) {
+    font-size: .7rem;
+    color: black;
+}
+
+header img {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+header .header__buttons {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: .5rem;
+}
+
+header .header__buttons .cadastrar {
+    background-color: #326554;
+    color: #fff;
+}
+
+header .header__buttons .consultar {
+    background-color: #7fffd4;
+}
+
+header .header__buttons .cadastrar:hover,
+header .header__buttons .consultar:hover {
+    background-color: #214136;
+    color: white;
+}
+
+
+.buttom {
+    padding: 1rem 2rem;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+    max-width: 80%;
+    flex-direction: column;
+    margin: 250px auto 0px auto;
+}
+
+.alinhar_ao_centro {
+    text-align: center;
+}
+
+.um_do_lado_do_outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid;
+    margin-top: 5rem;
+}
+
+.um_do_lado_do_outro .order_2 {
+    order: 2;
+}
+
+
+.colunasimples {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.imagemlogo {
+    display: inline-block;
+}
+
+nav {
+    display: inline-block;
+    margin-left: 500px;
+}
+
+.cabecalho__wrapper ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalho__wrapper li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #0066cc;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: #ff6600;
+}
+
+.cabecalho__wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.cabecalho__wrapper img {
+    height: 55px;
+    margin-left: 1rem;
+}
+
+/*----- inputs -----*/
+
+input, select {
+    border: 0px;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    margin-top: .2rem;
+}
+
+#consulta, #cadastro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 2rem;
+}
+
+#cadastro label {
+    display: flex;
+    justify-content: left;
+}
+
+#consulta .wrapper, #cadastro .wrapper {
+    text-align: center;
+    max-width: 400px;
+}
