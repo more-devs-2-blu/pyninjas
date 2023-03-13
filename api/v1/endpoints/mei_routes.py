@@ -68,7 +68,7 @@ def buscaMei(response:Response, Nova_meiID: int=None, CPF: str=None):
 
 # Edita a Solicitacao no Site
 @router.patch(
-    '/editamei/{id}',
+    '/editamei',
     summary='Edita uma Solicitação pelo Codigo ou CPF',
     description='Edita a Solicitação pelo ID',
     status_code=status.HTTP_200_OK,
