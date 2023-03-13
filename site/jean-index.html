@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="css/styles-JC.css"/>
+    <title>Agiliza MEI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <div class="flex-center">
+            <img src="imgs/logo01.png" alt="Agiliza MEI">
+            <p>Agilize a criação</p>
+            <p>de sua <b>MEI</b></p>
+            <br>
+            <p>escolha uma opção:</p>
+        </div>
+        <div class="header__buttons">
+            <button class="cadastrar buttom">CADASTRAR</button>
+            <button class="consultar buttom">CONSULTAR</button>
+        </div>
+    </header>
+
+    <main>
+        <p class="alinhar_ao_centro">Clique em cadastrar e adiante a criação de sua <b>MEI</b></p>
+    </main>
+
+    <div id="consulta">
+        <div class="wrapper">
+            <p class="titulo">Entre com o seu CPF</p>
+            <input type="text" name="cpf_consulta" id="cpf_consulta">
+            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+        </div>
+    </div>
+
+    <div id="cadastro">
+        <div class="wrapper">
+        <form class="formulario">
+            <div class="formulario__titulo">
+                <p class="titulo">Cadastrar</p>
+            </div>
+            <label for="viabilidade">Objetivo da Consulta de Viabilidade</label>
+            <select id="opcao__viabilidade" name="opcao__viabilidade">
+                <option value="0">SELECIONE</option>
+                <option value="1">Inscrição inicial</option>
+                <option value="2">Alteração de endereço</option>
+                <option value="3">Alteração de atividade econômica (CNAE)</option>
+                <option value="4">Alteração de endereço e Alteração de atividade econômica (CNAE)</option>
+                <option value="5">Transformação Societária</option>
+                <option value="6">Outras exigências/adequações de orgãos municipais (SEMMAS, VIG. SANIT., S.I.M. e outros)</option>
+                <option value="7">Alteração de endereço e Transformação Societária</option>
+                <option value="8">Alteração de atividade econômica (CNAE) e Transformação Societária</option>
+                <option value="9">Transformação Societária e Alteração de endereço e alteração de atividade econômica</option>  
+            </select>
+            
+            <label for="requerente">CPF/CNPJ Requerente</label>
+            <input type="text" id="requerente" name="requerente">
+            
+            <label for="cnaeprincipal">CNAE Principal</label>
+            <input type="text" id="cnaeprincipal" name="cnaeprincipal">
+            
+            <label for="cnaessecundarias">CNAES Secundárias</label>
+            <input id="cnaessecundarias" name="cnaessecundarias">
+            
+            <div class="formulario__tituloE">
+                <p class="titulo">Endereço</p>
+            </div>
+
+            <label for="inscricaocadastral">Inscrição Cadastral</label>
+            <input type="text" id="inscricaocadastral" name="inscricaocadastral">
+            
+            <label for="tipologradouro">Tipo Logradouro</label>
+            <input type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc.">
+            
+            <label for="logradouro">Logradouro</label>
+            <input id="logradouro" name="logradouro">
+
+            <label for="numero">Número</label>
+            <input id="numero" name="numero">
+            
+            <label for="numerocadastro">Número Cadastro</label>
+            <input id="numerocadastro" name="numerocadastro">
+
+            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+
+        </form>
+    </div>
+    </div>
+
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+
+</body>
+</html>
