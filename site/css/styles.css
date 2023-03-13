@@ -115,7 +115,11 @@ header {
 
 nav {
     display: inline-block;
-    margin-left: 500px;
+
+}
+
+.cabecalho__nav{
+    justify-content: flex-end;
 }
 
 .cabecalho__wrapper ul {
@@ -134,14 +138,14 @@ a {
     text-decoration: none;
     display: inline-block;
     padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #0066cc;
+    border-radius: 5px;
+    background-color: #2F5877;
     color: #fff;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
 }
 
 a:hover {
-    background-color: #ff6600;
+    background-color: #64A8DC;
 }
 
 .cabecalho__wrapper {
@@ -152,4 +156,74 @@ a:hover {
 .cabecalho__wrapper img {
     height: 55px;
     margin-left: 1rem;
+}
+
+
+
+#cadastrolink{
+    background-color: #ff0000;
+}
+
+#cadastrolink:hover{
+    background-color: #64A8DC;
+}
+
+.formulario__titulo{
+    color: #F21313;
+    margin-top:  200px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 20px;
+
+}
+
+.formulario__tituloE{
+    color: #F21313;
+    margin-top:  200px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 20px;
+}
+
+.formulario__tituloE{
+    color: #F21313;
+    margin-top:  100px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 20px;
+}
+.formulario{
+    text-align: center;
+}
+
+#botaoenviar{
+    margin-top: 10px;
+    font-size: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #2F5877;
+    color: #ffffff;
+    transition: background-color 0.4s ease-in-out;
+}
+
+#botaoenviar:hover {
+    background-color: #64A8DC;
+}
+
+input{
+    width: 700px;
+    height: 29px;
+}
+
+footer{
+    background-color: #3a779d;
 }
