@@ -1,7 +1,7 @@
 from db.database import engine
 from datetime import datetime
-from models.model import Nova_mei, RelacaoOcupacaoXNovaMEI
-from sqlmodel import Session
+from models.model import Nova_mei, RelacaoOcupacaoXNovaMEI, Ocupacao
+from sqlmodel import Session, select
 from typing import List
 
 
@@ -32,18 +32,17 @@ def createMei(cpf: str, objetivo_viabilidade: str, inscricao_endereco: str, tipo
 
         return nova_mei
 
-# Inseridendo dados e cadastrando no banco de dados
-# with Session(engine) as session:
-#     nova_mei = Nova_mei(cpf="12345678900",  objetivo_viabilidade="teste",
-#                         inscricao_endereco="123", tipo_endereco="Rua", endereco="Rua Teste",
-#                         nr_endereco="123")
-#     ocupacao = Ocupacao(descricao="Teste", cnae="123")
-#     relacao_ocupacao = RelacaoOcupacaoXNovaMEI(nova_mei=nova_mei, ocupacao=ocupacao, is_primario=True)
+def findMei(Nova_meiID: int):
+    with Session(engine) as session:
+        statement = select(Nova_mei, RelacaoOcupacaoXNovaMEI).join(RelacaoOcupacaoXNovaMEI).where(Nova_mei.id == Nova_meiID)
+        results = session.exec(statement).first()
+        return results
 
+    
 
-#     session.add(nova_mei)
-#     session.add(ocupacao)
-#     session.commit()
-
-#     print(nova_mei)
-#     print(ocupacao)
+def allCnaes():
+    with Session(engine) as session:
+        statement = select(Ocupacao)
+        
+        results = session.exec(statement).all()
+        return results

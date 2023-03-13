@@ -1,12 +1,11 @@
-from controller.user_controller import editUser, createUser, deleteUser, findUser, allUsers
 from fastapi import APIRouter, Response
 from fastapi import status
 from models.model import Nova_mei, Ocupacao, RelacaoOcupacaoXNovaMEI
-from controller.novamei_felipe_teste import createMei
+from controller.novamei_controller import createMei, findMei, allCnaes
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from sqlmodel import Session, select
+
 from db.database import engine 
 from typing import List
 
@@ -51,8 +50,14 @@ def criaMei(mei: Nova_mei, ocupacoes: List[int], response: Response):
     status_code=status.HTTP_200_OK,
     tags=['MEI']
 )
-def buscaMei():
-    pass
+def buscaMei(Nova_meiID: int, response: Response):
+    finded_mei = findMei(Nova_meiID)
+    if finded_mei:
+        response.status_code=status.HTTP_200_OK
+        return JSONResponse(content=jsonable_encoder(finded_mei))
+    else:
+        response.status_code=status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND
 
 # Edita a Solicitacao no Site
 @router.post(
@@ -73,8 +78,14 @@ def editarMei():
     status_code=status.HTTP_200_OK,
     tags=['CNAES']
 )
-def listaCNAEs():
-    pass
+def listaCNAES(response: Response):
+    all_cnaes = allCnaes()
+    if all_cnaes:
+        response.status_code = status.HTTP_200_OK
+        return JSONResponse(content=jsonable_encoder(all_cnaes))
+    else:
+        response.status = status.HTTP_404_NOT_FOUND
+        return status.HTTP_404_NOT_FOUND
 
 # Busca lista de CNAEs registrada na Solicitacao da MEI
 @router.get(
@@ -86,5 +97,3 @@ def listaCNAEs():
 )
 def buscaCNAEsporID():
     pass
-
-
