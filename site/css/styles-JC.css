@@ -93,8 +93,8 @@ header p:nth-child(3) {
     line-height: 1.5rem;
 }
 
-header p:nth-child(5) {
-    font-size: .7rem;
+.pequeno {
+    font-size: .8rem;
     color: black;
 }
 
@@ -133,6 +133,8 @@ header .header__buttons .consultar:hover {
     border: 0px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #1ca126;
+    color: white;
 }
 
 .content {
@@ -241,4 +243,15 @@ input, select {
     text-align: center !important;
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.wrapp_center {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapp_center img {
+    width: fit-content;
+    margin: 0 auto;
 }
