@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
 }
-  
-.imagem-iptu img {
-    max-width: 40%;
 
+.imagem-iptu img {
+    max-width: 800px;
+    width: -webkit-fill-available;
 }
 
 .alinhar_centro_baixo {
@@ -50,6 +50,8 @@
 
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
 
 }
 
@@ -71,6 +73,8 @@
 html,
 body {
     min-height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* Typographic tweaks! 
@@ -81,6 +85,8 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Open Sans', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* 6. Improve media defaults */
@@ -97,9 +103,15 @@ svg {
 /* ---------------------------------- INICIO DO CSS --------------------------------------*/
 
 body {
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,104,125,1) 100%);
+    background: #d0e0ff;
+    padding-bottom: 5rem;   
 }
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
 
 .titulo {
     font-size: 1.5rem;
@@ -145,4 +157,15 @@ header img {
 
 .um_do_lado_do_outro .order_2 {
     order: 2;
+}
+
+
+.buttom {
+    padding: 1rem 2rem;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1ca126;
+    color: white;
+    text-decoration: none;
 }
