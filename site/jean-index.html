@@ -4,17 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <link rel="shortcut icon" href="imgs/favico.png"/>
     <link rel="stylesheet" type="text/css" href="css/styles-JC.css"/>
     <title>Agiliza MEI</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/maska@2/dist/maska.umd.js"></script>
+
+    <script src="https://unpkg.com/vue-multiselect@2.1.6" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.6/dist/vue-multiselect.min.css">
+
+
+
+    <script src="js/app.js" defer></script>
+
+
+
 
 
 </head>
+
 <body>
+    <div id="app">
+
     <header>
         <div class="flex-center">
             <img src="imgs/logo01.png" alt="Agiliza MEI">
@@ -24,8 +43,8 @@
             <p>escolha uma opção:</p>
         </div>
         <div class="header__buttons">
-            <button class="cadastrar buttom">CADASTRAR</button>
-            <button class="consultar buttom">CONSULTAR</button>
+            <button class="cadastrar buttom" @click="toggleCadastro">CADASTRAR</button>
+            <button class="consultar buttom" @click="toggleConsulta">CONSULTAR</button>
         </div>
     </header>
 
@@ -33,15 +52,19 @@
         <p class="alinhar_ao_centro">Clique em cadastrar e adiante a criação de sua <b>MEI</b></p>
     </main>
 
-    <div id="consulta">
-        <div class="wrapper">
-            <p class="titulo">Entre com o seu CPF</p>
-            <input type="text" name="cpf_consulta" id="cpf_consulta">
-            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
-        </div>
-    </div>
 
-    <div id="cadastro">
+        <div id="consulta" v-if="mostraConsulta">
+            <div class="wrapper">
+                <p class="titulo">Entre com o seu CPF</p>
+                <input type="text" name="cpf_consulta" id="cpf_consulta" v-maska data-maska="###.###.###-##" placeholder="000.000.000-00">
+                <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+            </div>
+        </div>
+
+
+
+    <div id="cadastro" v-if="mostraCadastro">
+
         <div class="wrapper">
         <form class="formulario">
             <div class="formulario__titulo">
@@ -52,23 +75,20 @@
                 <option value="0">SELECIONE</option>
                 <option value="1">Inscrição inicial</option>
                 <option value="2">Alteração de endereço</option>
-                <option value="3">Alteração de atividade econômica (CNAE)</option>
-                <option value="4">Alteração de endereço e Alteração de atividade econômica (CNAE)</option>
-                <option value="5">Transformação Societária</option>
-                <option value="6">Outras exigências/adequações de orgãos municipais (SEMMAS, VIG. SANIT., S.I.M. e outros)</option>
-                <option value="7">Alteração de endereço e Transformação Societária</option>
-                <option value="8">Alteração de atividade econômica (CNAE) e Transformação Societária</option>
-                <option value="9">Transformação Societária e Alteração de endereço e alteração de atividade econômica</option>  
+                <option value="3">Alteração de atividade (CNAE)</option>
+                <option value="4">Alt. de endereço e atividade(CNAE)</option>
             </select>
             
-            <label for="requerente">CPF/CNPJ Requerente</label>
-            <input type="text" id="requerente" name="requerente">
+            <label for="requerente">CPF/CNPJ do Requerente</label>
+            <input type="text" id="requerente" name="requerente" v-maska data-maska="['###.###.###-##', '##.###.###/####-##']">
             
-            <label for="cnaeprincipal">CNAE Principal</label>
-            <input type="text" id="cnaeprincipal" name="cnaeprincipal">
+            <label for="cnaeprincipal">CNAE Principal (Atividade)</label>
+            <input type="text" id="cnaeprincipal" name="cnaeprincipal" v-maska data-maska="####-#/##">
             
             <label for="cnaessecundarias">CNAES Secundárias</label>
             <input id="cnaessecundarias" name="cnaessecundarias">
+
+            <button class="buttom">Se você não sabe o número do CNAE, faça uma pesquisa AQUI</button><br><br>
             
             <div class="formulario__tituloE">
                 <p class="titulo">Endereço</p>
@@ -77,10 +97,10 @@
             <label for="inscricaocadastral">Inscrição Cadastral</label>
             <input type="text" id="inscricaocadastral" name="inscricaocadastral">
             
-            <label for="tipologradouro">Tipo Logradouro</label>
+            <label for="tipologradouro">Tipo: (Logradouro)</label>
             <input type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc.">
             
-            <label for="logradouro">Logradouro</label>
+            <label for="logradouro">Endereço: (Logradouro)</label>
             <input id="logradouro" name="logradouro">
 
             <label for="numero">Número</label>
@@ -93,7 +113,12 @@
 
         </form>
     </div>
+
+
     </div>
+
+    </div>
+
 
 
     <footer>
