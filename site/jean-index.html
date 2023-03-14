@@ -49,7 +49,7 @@
     </header>
 
     <main>
-        <p class="alinhar_ao_centro">Clique em cadastrar e adiante a criação de sua <b>MEI</b></p>
+        <p class="alinhar_ao_centro">Vamos agilizar o cadastro de sua <b>MEI</b>!</p>
     </main>
 
 
@@ -80,7 +80,7 @@
             </select>
             
             <label for="requerente">CPF/CNPJ do Requerente</label>
-            <input type="text" id="requerente" name="requerente" v-maska data-maska="['###.###.###-##', '##.###.###/####-##']">
+            <input type="text" id="requerente" class="alinhar_ao_centro" name="requerente" v-maska data-maska="['###.###.###-##', '##.###.###/####-##']">
             
             <label for="cnaeprincipal">CNAE Principal (Atividade)</label>
             <input type="text" id="cnaeprincipal" name="cnaeprincipal" v-maska data-maska="####-#/##">
@@ -88,14 +88,15 @@
             <label for="cnaessecundarias">CNAES Secundárias (Máx:15)</label>
             <input id="cnaessecundarias" name="cnaessecundarias">
 
-            <button class="buttom">Se você não sabe o número do CNAE, faça uma pesquisa AQUI</button><br><br>
+            <button class="buttom">Lista de números CNAE</button><br><br>
             
             <div class="formulario__tituloE">
                 <p class="titulo">Endereço</p>
             </div>
 
-            <label for="inscricaocadastral">Inscrição Cadastral - Onde encontrar? <a class="botao_nrinscricao" href="nrinscricao.html" target="_blank">Clique aqui</a></label> 
+            <label for="inscricaocadastral" style="position: relative;">Inscrição Cadastral</label> 
             <input type="text" id="inscricaocadastral" name="inscricaocadastral">
+            <p>Onde encontrar?<a class="botao_nrinscricao link_botao" href="nrinscricao.html" target="_blank" style="margin-left: 10px;">Clique aqui</a></p>
             
             <label for="tipologradouro">Tipo: (Logradouro)</label>
             <input type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc.">
@@ -109,7 +110,7 @@
             <label for="numerocadastro">Número Cadastro</label>
             <input id="numerocadastro" name="numerocadastro">
 
-            <button id="botaoenviar" class="consultar buttom" type="submit">Enviar</button>
+            <a href="jean-parte2.html" class="consultar buttom">Enviar</a>
 
         </form>
     </div>

@@ -66,16 +66,17 @@ h6 {
 /* ---------------------------------- INICIO DO CSS --------------------------------------*/
 
 body {
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,104,125,1) 100%);
+    background: #d0e0ff;
+    padding-bottom: 5rem;
+    /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(117, 156, 163) 100%); */
 }
 
 .titulo {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     color: #2f5877;
     font-weight: 600;
-    margin-bottom: .5rem;
     border-bottom: 1px solid #2f58772c;
+    margin: 2rem 0px 1rem !important;
 }
 
 header {
@@ -90,7 +91,7 @@ header p {
 }
 header p:nth-child(3) {
     font-size: 2.8rem;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
 }
 
 .pequeno {
@@ -115,10 +116,12 @@ header .header__buttons {
 header .header__buttons .cadastrar {
     background-color: #326554;
     color: #fff;
+    text-align: center;
 }
 
 header .header__buttons .consultar {
-    background-color: #7fffd4;
+    background-color: #369a6e;
+    text-align: center;
 }
 
 header .header__buttons .cadastrar:hover,
@@ -135,6 +138,7 @@ header .header__buttons .consultar:hover {
     cursor: pointer;
     background-color: #1ca126;
     color: white;
+    text-decoration: none;
 }
 
 .content {
@@ -187,18 +191,17 @@ nav {
     margin-right: 30px;
 }
 
-a {
+.link_botao {
     text-decoration: none;
     display: inline-block;
-    padding: -1px 25px;
-    margin-left: 15px;
-    border-radius: 8px;
+    padding: 2px 10px;
+    border-radius: 5px;
     background-color: #1ca126;
     color: #fff;
     transition: background-color 0.3s ease-in-out;
 }
 
-a:hover {
+.link_botao:hover {
     background-color: #07460c;
 }
 
@@ -221,19 +224,31 @@ input, select {
     width: 100%;
     margin-bottom: 1.5rem;
     margin-top: .2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 #consulta, #cadastro {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 2rem 2rem;
+    padding: 0rem 2rem;
 }
 
 #cadastro label {
     display: flex;
     justify-content: left;
+    font-weight: 600;
+    color: rgb(58 58 58);
 }
+
+.formulario p {
+    text-align: left;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: .8rem;
+}
+
 
 #consulta .wrapper, #cadastro .wrapper {
     text-align: center;
@@ -257,3 +272,13 @@ input, select {
     margin: 0 auto;
 }
 
+.consulta_aprovada {
+    background-color: aquamarine;
+    padding: 0rem 0px 2rem;
+}
+
+
+
+.conteudo-wrapper {
+    display: none;
+}
