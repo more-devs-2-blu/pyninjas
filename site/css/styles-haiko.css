@@ -143,6 +143,15 @@ header {
     margin-bottom: 50px;
 }
 
+.blocoFinal {
+    margin-bottom: 150px;
+}
+
+.imgLogoGovBR {
+    display: flex;
+    justify-content: center;
+}
+
 .bloco7 ul {
     padding-left: 0;
 }
