@@ -12,6 +12,10 @@ O projeto de aceleração de abertura de empresas foi criado para simplificar e 
 - [@Haiko](https://github.com/Haipo31) - *Front-end*
 
 
+## ✔️ Protótipo ✔️
+<a href="https://www.figma.com/file/Cb5djZbpAbnjeJ2yH99d1N/Agiliza-MEI?node-id=0%3A1&t=zs4RO99omlAVxcvN-0">Clique aqui</a> para acessar o protótipo.
+
+
 ## 📄 Requisitos 📄
 
 - Python 3.9 ou superior;
