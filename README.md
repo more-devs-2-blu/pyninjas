@@ -7,7 +7,7 @@ O projeto de aceleração de abertura de empresas foi criado para simplificar e 
 - [@Felipe](https://github.com/FelipeWeiss1992) - *Backend*
 - [@João](https://github.com/JoaoVictorOlve) - *Front-end*
 - [@Thiago](https://github.com/thiagofranca85) - *Full Stack Web Developer*
-- [@Nicolas](https://github.com/LiraNick) - *Front-end - Repositório*
+- [@Nicolas](https://github.com/LiraNick) - *Front-end - Repositório - Documentação*
 - [@Vander](https://github.com/Vanderlaus) - *Backend*
 - [@Haiko](https://github.com/Haipo31) - *Front-end*
 
