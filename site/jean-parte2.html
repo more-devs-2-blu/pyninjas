@@ -37,15 +37,19 @@
     <header>
         <div class="flex-center">
             <img src="imgs/logo01.png" alt="Agiliza MEI">
+
+            <div class="consulta_aprovada">
+                <br>
+                <p>Consulta de</p>
+                <p>viabilidade <b>Aprovada!</b></p>
+            </div>
+
             <br>
-            <p>Consulta de</p>
-            <p>viabilidade <b>Aprovada!</b></p>
-            <br><br><br>
             <p class="pequeno">escolha uma opção:</p>
         </div>
         <div class="header__buttons">
-            <button class="cadastrar buttom" @click="toggleCadastro">ENVIAR DADOS A PREFEITURA</button>
-            <button class="consultar buttom" @click="toggleConsulta">NOVA CONSULTA</button>
+            <a href="#" class="cadastrar buttom" @click="toggleCadastro">ENVIAR DADOS A PREFEITURA</a>
+            <a href="jean-index.html" class="consultar buttom" @click="toggleConsulta">NOVA CONSULTA</a>
         </div>
     </header>
 
