@@ -190,15 +190,16 @@ nav {
 a {
     text-decoration: none;
     display: inline-block;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #0066cc;
+    padding: -1px 25px;
+    margin-left: 15px;
+    border-radius: 8px;
+    background-color: #1ca126;
     color: #fff;
     transition: background-color 0.3s ease-in-out;
 }
 
 a:hover {
-    background-color: #ff6600;
+    background-color: #07460c;
 }
 
 .cabecalho__wrapper {
@@ -255,3 +256,4 @@ input, select {
     width: fit-content;
     margin: 0 auto;
 }
+

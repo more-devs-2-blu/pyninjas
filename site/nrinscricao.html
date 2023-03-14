@@ -1,54 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="shortcut icon" href="imgs/favico.png"/>
-    <link rel="stylesheet" type="text/css" href="css/styles-haiko.css"/>
     <link rel="stylesheet" type="text/css" href="css/styles-felipe.css"/>
     <title>Agiliza MEI</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/maska@2/dist/maska.umd.js"></script>
+
+    <script src="https://unpkg.com/vue-multiselect@2.1.6" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.6/dist/vue-multiselect.min.css">
+
+
+
+    <script src="js/app.js" defer></script>
 
 </head>
+
 <body>
+    <div id="app">
 
+    <header>
+        <div class="flex-center">
+            <img src="imgs/logo01.png" alt="Agiliza MEI">
+            <p>Agilize a criação</p>
+            <p>de sua <b>MEI</b></p>
+            <br>
+        </div>
+        
+    </header>
+    
+    <main>
+        <h2 class="alinhar_centro_baixo">Como Encontrar meu Número de Inscrição Cadastral no <b>IPTU?</b></h2>
+        <p class="alinhar_centro_baixo">O número da inscrição pode ser encontrado no carnê, sendo esse os números após a barra do número de cadastro.</p>
+    </main>
+    
+    <div class="imagem-iptu">
+        <img src="imgs/numerocadastro.png">    
+    </div>
 
-<div class="content">
-    <div class="espaco-texto">
-        <h2>Como Encontrar meu Número de Inscrição Cadastral no IPTU?</h2>
-    </div>
-    <div class="imagemCadastro">
-        <div class="espaco-texto">  
-            <h3>O número da Inscrição Cadastral pode ser encontrado no carnê, sendo esse os números após a barra do numero do cadastro.</h3>
-        </div> 
-        <img   src="imgs/numerocadastro.png">    
-    </div>
-    <div>
+    <h2 class="alinhar_centro_cima">Como Retirar meu Carnê IPTU?</h2>
 
-    <div class="espaco-topo">
-        <h2>Como retirar meu carne do IPTU?</h2>
-    </div>
-    <div class="espaco-texto">
-        <h3>Segue link para pegar a segunda via do IPTU</h2>
+    <p class="alinha_centro_cima_baixo">Você pode estar retirando a segunda via do IPTU nesse <b>LINK -></b> <a href="http://www.blumenau.sc.gov.br/cidadao/pages/siatu/EmissaoGuiasAtualizadas/GuiasAtualizadas.aspx" target="_blank">Segunda Via IPTU</a></p>
+    
+
+    <div class="imagem-iptu">
+        <img src="imgs/segundavia.png">    
     </div>
 
-    </div>
-    <div>
-        <img class="imagemCadastro" src="imgs/segundavia.png">   
+   
+    <div class="alinha_centro">
         <ul>
-            <li>O processo pode levar alguns segundos para terminar.</li>
-            <li>Em caso de alta demanda, a emissão do carnê pode não ser possivel. O recomendado é tentar novamente alguns minutos ou horas depois.</li>
+            <li class="alinhar_cima"><p>O processo pode levar alguns segundo para terminar.</p></li>
+            <li class="alinhar_cima_baixo"><p>Em caso de alta demanda, a emissão do carnê pode não ser possível. O recomendado é tentar novamente alguns minutos ou horas depois.</p></li>
         </ul>
+    </div>
 
     </div>
 
-</div>
 
+
+    <footer>
+        <p></p>
+    </footer>
 
 
 </body>
