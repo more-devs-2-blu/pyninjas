@@ -1,17 +1,148 @@
-.espaco-texto{
+.imagem-iptu {
+    display: flex;
+    justify-content: center;
+}
+  
+.imagem-iptu img {
+    max-width: 40%;
+
+}
+
+.alinhar_centro_baixo {
+    text-align: center;
     margin-bottom: 2rem;
-    margin-top: 10px;
+    
 }
 
-.espaco-topo{
-
-    margin-top: 10px;
-}
-
-.imagemCadastro{
-
-    width: 75%;
+.alinhar_centro_cima{
+    text-align: center;
+    margin-top: 2rem;
 
 }
 
+.alinhar_cima_baixo{
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
 
+.alinhar_baixo{
+
+    margin-bottom: 2rem;
+
+}
+
+.alinhar_cima{
+
+    margin-top: 2rem;
+
+}
+
+
+.alinha_centro_cima_baixo{
+
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+.alinha_centro{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+/*--- HTML RESET template: https://www.joshwcomeau.com/css/custom-css-reset/ ---*/
+
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+
+/* 3. Allow percentage-based heights in the application */
+html,
+body {
+    min-height: 100%;
+}
+
+/* Typographic tweaks! 
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* ---------------------------------- INICIO DO CSS --------------------------------------*/
+
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,104,125,1) 100%);
+}
+
+.titulo {
+    font-size: 1.5rem;
+    color: #2f5877;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #2f58772c;
+}
+
+header {
+    margin: 1rem;
+    margin-top: 3rem;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2f5877;
+}
+header p:nth-child(3) {
+    font-size: 2.8rem;
+    line-height: 1.5rem;
+}
+
+
+header img {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+
+.alinhar_ao_centro {
+    text-align: center;
+}
+
+.um_do_lado_do_outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid;
+    margin-top: 5rem;
+}
+
+.um_do_lado_do_outro .order_2 {
+    order: 2;
+}
