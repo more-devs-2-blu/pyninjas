@@ -40,8 +40,8 @@
                 <div class="formulario__titulo">
                     <p>Resumo da Solicitação</p>
                 </div>
-                <label for="viabilidade">Objetivo da Consulta de Viabilidade</label><br>
-                <select id="opcao__viabilidade" name="opcao__viabilidade">
+                <label class="resumo-label" for="viabilidade">Objetivo da Consulta de Viabilidade</label><br>
+                <select class="resumo-input" id="opcao__viabilidade" name="opcao__viabilidade">
                   <option value="0">SELECIONE</option>
                   <option value="1">Inscrição inicial</option>
                   <option value="2">Alteração de endereço</option>
@@ -54,33 +54,29 @@
                   <option value="9">Transformação Societária e Alteração de endereço e alteração de atividade econômica</option>  
                 </select><br>
                 
-                <label for="requerente">CPF/CNPJ Requerente</label><br>
-                <input type="text" id="requerente" name="requerente"><br>
+                <label class="resumo-label" for="requerente">CPF/CNPJ Requerente</label><br>
+                <input class="resumo-input" type="text" id="requerente" name="requerente"><br>
               
-                <label for="cnaeprincipal">CNAE Principal</label><br>
-                <input type="text" id="cnaeprincipal" name="cnaeprincipal"><br>
+                <label class="resumo-label" for="cnaeprincipal">CNAE Principal</label><br>
+                <input class="resumo-input" type="text" id="cnaeprincipal" name="cnaeprincipal"><br>
               
-                <label for="cnaessecundarias">CNAES Secundárias</label><br>
-                <input id="cnaessecundarias" name="cnaessecundarias"></input><br>
-                
-                <div class="formulario__titulo">
-                    <p>Endereço</p>
-                </div>
+                <label class="resumo-label" for="cnaessecundarias">CNAES Secundárias</label><br>
+                <input class="resumo-input" id="cnaessecundarias" name="cnaessecundarias"></input><br>
 
-                <label for="inscricaocadastral">Inscrição Cadastral</label><br>
-                <input type="text" id="inscricaocadastral" name="inscricaocadastral"><br>
+                <label class="resumo-label" for="inscricaocadastral">Inscrição Cadastral</label><br>
+                <input class="resumo-input" type="text" id="inscricaocadastral" name="inscricaocadastral"><br>
               
-                <label for="tipologradouro">Tipo Logradouro</label><br>
-                <input type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc."><br>
+                <label class="resumo-label" for="tipologradouro">Tipo Logradouro</label><br>
+                <input class="resumo-input" type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc."><br>
               
-                <label for="logradouro">Logradouro</label><br>
-                <input id="logradouro" name="logradouro"></input><br>
+                <label class="resumo-label" for="logradouro">Logradouro</label><br>
+                <input class="resumo-input" id="logradouro" name="logradouro"></input><br>
 
-                <label for="numero">Número</label><br>
-                <input id="numero" name="numero"></input><br>
+                <label class="resumo-label" for="numero">Número</label><br>
+                <input class="resumo-input" id="numero" name="numero"></input><br>
                 
-                <label for="numerocadastro">Número Cadastro</label><br>
-                <input id="numerocadastro" name="numerocadastro"></input><br>
+                <label class="resumo-label" for="numerocadastro">Número Cadastro</label><br>
+                <input class="resumo-input" id="numerocadastro" name="numerocadastro"></input><br>
 
                <button id="botaoenviar" type="submit">Atualizar</button>
 
@@ -95,12 +91,21 @@
             <img style="width:300px" class="imagem__logo" src="imgs/logo01.png">
         </div>
         <div class="footer-social-media">
-
+            <i class="footer-socialmedia-icon" style="color: #ac2bac;"></i>
+            <i class="footer-socialmedia-icon" style="color: #3b5998;"></i>
+            <i class="footer-socialmedia-icon" style="color: #55acee;"></i>
         </div>
     </div>
     <div class="footer-right">
-        <div class="footer-menu"></div>
-        <div class="footer-nav"></div>
+        <div class="footer-right-content">
+        <div class="footer-menu"><span class="menu-underline">Me</span>nu</div>
+        <div class="footer-nav">
+            <div class="footer-redirect">Perguntas</div>
+            <div class="footer-redirect">Procedimentos</div>
+            <div class="footer-redirect">Sobre</div>
+            <div class="footer-redirect">Cadastro</div>
+        </div>
+        </div>
     </div>
 </footer>
 
