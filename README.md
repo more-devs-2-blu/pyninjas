@@ -3,11 +3,11 @@ O projeto de aceleração de abertura de empresas foi criado para simplificar e 
 
 ## ✒️ Autores/Funções ✒️
 
+- [@Jean](https://github.com/jeancnn) - *Full Stack Web Developer -  Tech Lead*
 - [@Felipe](https://github.com/FelipeWeiss1992) - *Backend*
 - [@João](https://github.com/JoaoVictorOlve) - *Front-end*
 - [@Thiago](https://github.com/thiagofranca85) - *Front-end e Backend*
 - [@Nicolas](https://github.com/LiraNick) - *Front-end - Repositório*
-- [@Jean](https://github.com/jeancnn) - *Organização de equipe - Auxílio no código - Front-end e Backend*
 - [@Vander](https://github.com/Vanderlaus) - *Backend*
 - [@Haiko](https://github.com/Haipo31) - *Front-end*
 
