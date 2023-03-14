@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="imgs/favico.png"/>
+    <link rel="stylesheet" type="text/css" href="css/styles-JC.css"/>
+    <title>Agiliza MEI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/maska@2/dist/maska.umd.js"></script>
+
+    <script src="https://unpkg.com/vue-multiselect@2.1.6" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.6/dist/vue-multiselect.min.css">
+
+
+
+    <script src="js/app2.js" defer></script>
+
+
+
+
+
+</head>
+
+<body>
+    <div id="app">
+
+    <header>
+        <div class="flex-center">
+            <img src="imgs/logo01.png" alt="Agiliza MEI">
+            <br>
+            <p>Consulta de</p>
+            <p>viabilidade <b>Aprovada!</b></p>
+            <br><br><br>
+            <p class="pequeno">escolha uma opção:</p>
+        </div>
+        <div class="header__buttons">
+            <button class="cadastrar buttom" @click="toggleCadastro">ENVIAR DADOS A PREFEITURA</button>
+            <button class="consultar buttom" @click="toggleConsulta">NOVA CONSULTA</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapp_center">
+            <p class="alinhar_ao_centro">Clique em Enviar dados a Prefeitura para obter um <b>protocolo</b> e já ter estes dados preenchidos ao falar com um atendente</p><br><br>
+            <img src="imgs/govbr/govbr-logo-large.png" alt=""><br>
+            <h3 class="alinhar_ao_centro">Você também vai precisar de um login de acesso <b>GOV.BR</b> com validação prata ou superior.</h3><br>
+            <p class="alinhar_ao_centro">Caso queria saber melhor como cadastrar e no sistema <b>GOV.BR</b> e validar seu cadastro:</p><br>
+
+            <button class="consultar buttom alinhar_ao_centro">COMO CADASTRAR E VALIDAR ACESSO GOV.BR</button>
+        </div>
+    </main>
+
+
+    </div>
+
+
+    <footer>
+        <p></p>
+    </footer>
+
+
+</body>
+</html>
