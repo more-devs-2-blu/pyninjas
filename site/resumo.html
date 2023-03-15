@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/favico.png"/>
+    <link rel="stylesheet" type="text/css" href="css/styles-joao.css"/>
+    <title>Agiliza MEI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!--Cabeçalho-->
+<header>
+    <div id="header-img">
+        <img style="width:15vw;" class="imagem-log" src="imgs/logo01.png">    
+    </div>
+    <nav id="header-nav">
+        <a class="header-select" href="govbr.html">Procedimentos</a>
+        <a class="header-select" href="sobre.html">Sobre</a>
+        <a class="header-select" id="cadastrolink" href="cadastro.html">Cadastro</a>
+    </nav>
+</header> 
+
+<!--Principal-->
+<div class="content">
+    <section class="formulario__section">
+            <form class="formulario">
+                <div class="formulario__titulo">
+                    <p>Resumo da Solicitação</p>
+                </div>
+                <label class="resumo-label" for="viabilidade">Objetivo da Consulta de Viabilidade</label><br>
+                <select class="resumo-input" id="opcao__viabilidade" name="opcao__viabilidade">
+                  <option value="0">SELECIONE</option>
+                  <option value="1">Inscrição inicial</option>
+                  <option value="2">Alteração de endereço</option>
+                  <option value="3">Alteração de atividade econômica (CNAE)</option>
+                  <option value="4">Alteração de endereço e Alteração de atividade econômica (CNAE)</option>
+                  <option value="5">Transformação Societária</option>
+                  <option value="6">Outras exigências/adequações de orgãos municipais (SEMMAS, VIG. SANIT., S.I.M. e outros)</option>
+                  <option value="7">Alteração de endereço e Transformação Societária</option>
+                  <option value="8">Alteração de atividade econômica (CNAE) e Transformação Societária</option>
+                  <option value="9">Transformação Societária e Alteração de endereço e alteração de atividade econômica</option>  
+                </select><br>
+                
+                <label class="resumo-label" for="requerente">CPF/CNPJ Requerente</label><br>
+                <input class="resumo-input" type="text" id="requerente" name="requerente"><br>
+              
+                <label class="resumo-label" for="cnaeprincipal">CNAE Principal</label><br>
+                <input class="resumo-input" type="text" id="cnaeprincipal" name="cnaeprincipal"><br>
+              
+                <label class="resumo-label" for="cnaessecundarias">CNAES Secundárias</label><br>
+                <input class="resumo-input" id="cnaessecundarias" name="cnaessecundarias"></input><br>
+
+                <label class="resumo-label" for="inscricaocadastral">Inscrição Cadastral</label><br>
+                <input class="resumo-input" type="text" id="inscricaocadastral" name="inscricaocadastral"><br>
+              
+                <label class="resumo-label" for="tipologradouro">Tipo Logradouro</label><br>
+                <input class="resumo-input" type="text" id="tipologradouro" name="tipologradouro" placeholder="Exemplo: Rua, Alameda, Avenida, etc."><br>
+              
+                <label class="resumo-label" for="logradouro">Logradouro</label><br>
+                <input class="resumo-input" id="logradouro" name="logradouro"></input><br>
+
+                <label class="resumo-label" for="numero">Número</label><br>
+                <input class="resumo-input" id="numero" name="numero"></input><br>
+                
+                <label class="resumo-label" for="numerocadastro">Número Cadastro</label><br>
+                <input class="resumo-input" id="numerocadastro" name="numerocadastro"></input><br>
+
+               <button id="botaoenviar" type="submit">Atualizar</button>
+
+              </form>
+    </section>
+
+</div>
+
+<footer>
+    <div class="footer-left">
+        <div class="footer-icon">
+            <img style="width:300px" class="imagem__logo" src="imgs/logo01.png">
+        </div>
+        <div class="footer-social-media">
+            <a href="https://www.instagram.com/prefeiturabnu/" class="icon-select"><i class="footer-socialmedia-icon"><img src="./imgs/footer_icons/insta_icon.png" style="width:30px;"></i></a>
+            <a href="https://www.facebook.com/PrefeituraBNU" class="icon-select"><i class="footer-socialmedia-icon"><img src="./imgs/footer_icons/facebook_icon.png" style="width:30px;"></i></a>
+            <a href="https://www.linkedin.com/company/prefeitura-municipal-de-blumenau/" class="icon-select"><i class="footer-socialmedia-icon"><img src="./imgs/footer_icons/linkedin_icon.png" style="width:30px;"></i></a>
+        </div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-right-content">
+        <div class="footer-menu"><span class="menu-underline">Me</span>nu</div>
+        <div class="footer-nav">
+            <div class="footer-redirect">Perguntas</div>
+            <div class="footer-redirect">Procedimentos</div>
+            <div class="footer-redirect">Sobre</div>
+            <div class="footer-redirect">Cadastro</div>
+        </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
