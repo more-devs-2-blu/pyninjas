@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="imgs/favico.png"/>
+    <link rel="stylesheet" type="text/css" href="css/styles-felipe.css"/>
+    <title>Agiliza MEI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/maska@2/dist/maska.umd.js"></script>
+
+    <script src="https://unpkg.com/vue-multiselect@2.1.6" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.6/dist/vue-multiselect.min.css">
+
+
+
+    <script src="js/app.js" defer></script>
+    <style>
+        table {
+            margin: auto; /* alinhar horizontalmente */
+            height: 400px; /* definir altura para centralizar verticalmente */
+            border: 1px solid rgb(14, 34, 51); /* Define uma borda de 1px preta ao redor da tabela */
+            border-collapse: collapse; /* Mescla as bordas das células da tabela */
+        }
+        thead {
+            background-color: #2f5877;
+    
+        }
+
+        tbody {
+
+            background-color: #668399;
+            
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #a8c3d1; /* cor para as linhas ímpares */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #c3d6e6; /* cor para as linhas pares */
+        }
+        th{
+            
+            color: #ffffff;
+            vertical-align: middle; /* alinhar verticalmente */
+            border: 1px solid #CCC; /* Define uma borda de 1px preta em cada célula da tabela */
+            padding: 8px; /* Define um preenchimento de 8px para as células da tabela */
+        }
+        td{
+            
+            color: #000000;
+            vertical-align: middle; /* alinhar verticalmente */
+            border: 1px solid #CCC; /* Define uma borda de 1px preta em cada célula da tabela */
+            padding: 8px; /* Define um preenchimento de 8px para as células da tabela */
+        }
+
+
+    
+      </style>
+
+</head>
+
+<body>
+    <div id="app">
+
+    <header>
+        <div class="flex-center">
+            <img src="imgs/logo01.png" alt="Agiliza MEI">
+            <p>Agilize a criação</p>
+            <p>de sua <b>MEI</b></p>
+            <br>
+        </div>
+        
+    </header>
+    
+    <main>
+        <p class="alinhar_centro_baixo">Segue abaixo uma lista de atribuições <b>(CNAE)</b></p>
+    
+    </main>
+   
+    <table >
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Restaurantes e similares</td>
+                <td>5611-2/01</td>
+            </tr>
+            <tr>
+                <td>Consultoria em tecnologia da informação</td>
+                <td>6204-0/00</td>
+            </tr>
+            <tr>
+                <td>Atividades de organizações associativas</td>
+                <td>9411-2/00</td>
+            </tr>
+            <tr>
+                <td>Comércio varejista de artigos do vestuário e acessórios</td>
+                <td>4781-4/00</td>
+            </tr>
+            <tr>
+                <td>Construção de imóveis não residenciais</td>
+                <td>4110-7/99</td>
+            </tr>
+            <tr>
+                <td>Pesquisas de opinião pública</td>
+                <td>7319-0/02</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+    <footer>
+        <p></p>
+    </footer>
+
+
+</body>
+</html>
